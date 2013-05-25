@@ -23,3 +23,18 @@ define(`elen_', (elen_*1.25))
     b_current(I,below_)
     line to Origin
 .PE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% fig 2
+% «Ò Èµ⁄ŒÂ∞Ê£¨P26£¨1-5(a)
+.PS
+    cct_init
+    elen = elen_
+    Origin: Here
+    source(up_ elen*.8, i); b_current(\unit{2}{\ampere},below_,O)
+    llabel(-,U,+)
+    resistor(right_ elen, E); rlabel(,\unit{5}{\ohm},); llabel(+,U_R,-)
+    b_current(,,O)
+    source(down_ elen*.8, v); llabel(+,\unit{15}{\volt},-)
+    b_current(,,O)
+    line to Origin
+.PE

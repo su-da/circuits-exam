@@ -31,7 +31,7 @@ case "$1" in
         cp figbegin.mp fig.mp
         cat cct.mp >> fig.mp
         cat figend.mp >> fig.mp
-        mpost fig.mp
+        mpost -tex latex fig.mp
         for epsbympost in fig.?; do
             destfile=fig0`expr $epsbympost : 'fig.\([1-9]\)'`.mps
             if (test $destfile != fig0.mps); then

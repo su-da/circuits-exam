@@ -57,9 +57,9 @@
 \setcounter{version}{1}
 \begin{center}
 \begin{tabular}{r}
-{\Large \bf 苏州大学\underline{\examtype}课程试卷
-}\hspace{17pt}(\textsf{\Alph{version}}) 卷\hspace{17pt}共 4 页\medskip\\
-考试形式\underline{闭}卷\hspace{17pt}2012 年 1 月
+{\Large \bf 苏州大学文正学院\underline{\examtype}课程试卷
+}\hspace{17pt}(\textsf{\Alph{version}}) 卷\hspace{17pt}共 5 页\medskip\\
+考试形式\underline{闭}卷\hspace{17pt}2012 年 6 月
 \end{tabular}
 \\\bigskip
 \classdata\\ \namedata
@@ -68,7 +68,7 @@
 \end{examtop}
 \begin{keytop}
 \begin{center}
-{\bf\Large 苏州大学\underline{\examtype}课程}\hspace{17pt}(\textsf{\Alph{version}}) 卷参考答案\hspace{17pt}共 \pageref{LastPage} 页\bigskip\\
+{\bf\Large 苏州大学文正学院\underline{\examtype}课程}\hspace{17pt}(\textsf{\Alph{version}}) 卷参考答案\hspace{17pt}共 \pageref{LastPage} 页\bigskip\\
 院系：\underline{\hspace{51pt}}\hspace{17pt}专业：\underline{\hspace{51pt}}
 \end{center}
 \bigskip
@@ -76,131 +76,180 @@
 
 \newcommand\mathdot[1]{\dot#1}
 
-\begin{shortanswer}[]
+\begin{shortanswer}[title={计算题 (每题 10 分，共 100 分)}]
 %\begin{shortanswer}[title={\begin{description}\item[二、]计算题 (每
 %题 10 分，共 50 分)\end{description}}]
-\begin{question} % 01
-    求图中各器件的功率(须说明是吸收还是发出)。($10'$)
+\begin{question}
+    电路如下图所示，试求其中受控源的功率。
     \begin{figure}[H]
     \hfill
     \input fig01
     \end{figure}
-    \examvspace*{3cm}
+    \examvspace*{5cm}
     \begin{answer}
-    $P_{\unit{2}{\ampere}} = 15 \times 2 = \unit{30}{\watt}$，吸收。$P_{\unit{5}{\ohm}} = 15^2/5 = \unit{45}{\watt}$，吸收。$P_{\unit{15}{\volt}} = \unit{75}{\watt}$，发出。
+    列回路方程
+    \[
+    3I_1+2I_1=2
+    \]
+    解得 $I_1=\unit{0.4}{\ampere}$ ($3'$)，受控源发出功率为 $3I_1
+    \times 1 \times 2I_1=\unit{0.96}{\watt}$ ($2'$)。
     \end{answer}
 \end{question}
 
-\begin{question} %02
-    求图中的电压 $U_\mathrm{cb}$。($10'$)
+\begin{question}
+    求下图所示电路的电压 $U_\mathrm{ab}$。
     \begin{figure}[H]
     \hfill
     \input fig02
     \end{figure}
-    \examvspace*{4cm}
+    \examvspace*{6cm}
     \begin{answer}
-    $U_1 = 2 \times 5 = \unit{10}{\volt}$，$20 \times 0.05 U_1 +
-    U_\mathrm{cb} + 3 = 0$，$\therefore U_\mathrm{cb} = -
-    \unit{-13}{\volt}$。
+    利用电源等效变换可求得 $U_\mathrm{ab}=\unit{30}{\volt}$ (每步 $2'$)。
     \end{answer}
 \end{question}
 
-\begin{question} % 03
-    利用电源等效变换求图中电路在 ab 端口的最简等效电路。($10'$)
+\begin{question}
+    求下图所示电路中的电压 $U_\mathrm{o}$。
     \begin{figure}[H]
-        \hfill
-        \input fig03
+    \hfill
+    \input fig03
     \end{figure}
-    \examvspace*{5cm}
+    \examvspace*{7cm}
     \begin{answer}
-    内部独立源全部置零后，成为一简单串联电路，容易求得等效内阻为：
-    $R_{\rm eq}=\unit{10}{\ohm}$(5 分)；更容易解得开路电压 $u_{\rm
-    OC}=10-1\times 5=\unit{5}{\volt}$(5 分)。
+    应用节点法。取左下角节点为参考节点，右下边为节点 3，左上边为节点 1，
+    右上为节点 2 ($2'$)。则有方程
+    \[
+    0.2U_\mathrm{n1}-0.1U_\mathrm{n2} =-2 \\
+    -0.1U_\mathrm{n1}+0.15U_\mathrm{n2}-0.05U_\mathrm{n3} = 10 \\
+    -0.05U_\mathrm{n2}+0.15U\mathrm{n3} =-2
+    \] ($4'$)解得 $U_\mathrm{n1}=\unit{40}{\volt}$，
+    $U_\mathrm{n2}=\unit{100}{\volt}$，$U_\mathrm{n3}=\unit{20}{\volt}$
+    ($2'$)，因此
+     $U_\mathrm{o}=U_\mathrm{n2}-U_\mathrm{n3}=\unit{80}{\volt}$ ($2'$)。
     \end{answer}
 \end{question}
 
-\begin{question} % 04
-    求电流 $I$。($10'$)
+\begin{question}
+    求下图所示电路中的 $U_3$。
     \begin{figure}[H]
     \hfill
     \input fig04
     \end{figure}
-    \examvspace*{4cm}
+    \examvspace*{7cm}
     \begin{answer}
-    用回路电流法易解得 $I = \unit{1}{\ampere}$。
+    本电路只有一个回路，有 $I_1=-6/(6+4)=\unit{-0.6}{\ampere}$ ($5'$)，
+    根据基尔霍夫定律可得到 $U_3=-10I_1+4I_1+6=\unit{9.6}{\volt}$ ($5'$)。
     \end{answer}
 \end{question}
 
-\begin{question} % 05
-如图所示电路，求电流 $I$ 和电压 $U$。($10'$)
+\begin{question}
+    求图示电路的戴维宁或诺顿等效电路。
     \begin{figure}[H]
     \hfill
     \input fig05
     \end{figure}
-    \examvspace*{4cm}
+    \examvspace*{8cm}
     \begin{answer}
-    用节点电压法易解得 $I = \unit{1}{\ampere}$，$U = \unit{8}{\volt}$。
+    用节点电压法可求得开路电压 $U_\mathrm{OC}=\unit{24}{\volt}$ ($4'$)。
+    同样可求得此电路短路电流为 $I_\mathrm{SC}=\unit{6}{\ampere}$ ($4'$)。故等效
+    电阻为 $R_\mathrm{eq}=U_\mathrm{OC}/I_\mathrm{SC}=\unit{4}{\ohm}$ ($2'$)。
     \end{answer}
 \end{question}
 
-\begin{question} % 06 换为 js1 12
-如图所示电路，$R_\mathrm{L}$ 可变，问 $R_\mathrm{L}$ 取何值时可获得最大功率，并求出该最大功率。($10'$)
-	\begin{figure}[H]
-	  \hfill
-        \input fig06
-	\end{figure}
-\examvspace*{6cm}
-    \begin{answer}
-    可求得 $U_\mathrm{OC} = \unit{40}{\volt}$，$I_\mathrm{SC} = \unit{4}{\ampere}$，$R_\mathrm{eq} = \unit{10}{\ohm}$，最大功率的条件是 $R_\mathrm{L} = R_\mathrm{eq}$，最大功率为 $P_\mathrm{max} = \frac{U_\mathrm{OC}^2}{4R_\mathrm{eq}} = \unit{40}{\watt}$。
-    \end{answer}
-\end{question}
-
-\begin{question} % 07
-    求下图电路中的输入阻抗 $Z$ 和导纳 $Y$。($10'$)
+\begin{question}
+    求下图中的电压 $\dot{U}$。
     \begin{figure}[H]
     \hfill
     \input fig07
     \end{figure}
-    \examvspace*{2cm}
+    \examvspace*{8cm}
     \begin{answer}
-    $Z = \unit{(2-\jimag 1)}{\ohm}$，$Y = \unit{(0.4+\jimag 0.2)}{\siemens}$。
+    总导纳为 $Y=1+\jimag 2-\jimag 1=1+\jimag 1\unit{}{\ohm}$ ($5'$)，故
+    有
+     $\dot{U}=\dot{I}_\mathrm{S}/Y=\sqrt{2}\Varangle{-45\degree}\unit{}{\volt}$
+    （$5'$）。
     \end{answer}
 \end{question}
 
-\begin{question} %08
-    列出下图电路的回路电流方程和结点电压方程。($15'$)
+\begin{question}
+    给出图中电路的结点电压方程和回路电流方程。
     \begin{figure}[H]
-        \hfill
-        \input fig08
+    \hfill
+    \input fig08
     \end{figure}
-    \examvspace*{4cm}
+    \examvspace*{7cm}
     \begin{answer}
-    结点电压方程，回路电流方程略。教材习题9-17(c)。
+    结点电压方程为
+    \[\left.\begin{aligned}
+    3\dot{U}_\mathrm{n1}-2\dot{I}-\dot{U}_\mathrm{n3} &= \dot{U}_\mathrm{S}
+    \\
+    -\dot{U}_\mathrm{n1}-\jimag
+    0.1\times 2\dot{I}+\dot{U}_\mathrm{n3} &= 0 \\
+    \dot{I} &= (\dot{U}_\mathrm{n3}-\dot{U}_\mathrm{n1})/1
+    \end{aligned}\right\}\]
+    网孔方程为 ($\dot{I}_1$ 和 $\dot{I}_2$ 分别为下边两个网孔电流，顺时
+    针，上边网孔电流逆时针)
+    \[\left.\begin{aligned}
+    2 \dot{I}_1 + \dot{I} &= \dot{U}_\mathrm{S} - 2 \dot{I} \\
+    -\jimag 10 \dot{I} &= 2 \dot{I} \\
+    \dot{I}_1 - \jimag 10 \dot{I}_2 + (2-\jimag 10)\dot{I} &= 0
+    \end{aligned}\right\}\]
     \end{answer}
 \end{question}
 
-\begin{question} % 09 换为 js1 
-    图示电路中，开关 S 动作前电路已达稳定状态，原合在位置 1，$t=0$ 时
-    S 由位置 1 合向位置 2，求
-    $t\geq 0$ 时电压 $u_L$ 的响应。($15'$)
+\begin{question}
+    求下图中电流源发出的复功率。
     \begin{figure}[H]
     \hfill
     \input fig09
     \end{figure}
-    \examvspace*{6cm}
+    \examvspace*{7cm}
     \begin{answer}
-    先求 $i_L(0_-)$，解得 $i_L(0_-)=\unit{5}{\ampere}$ ($3'$)。则
-    $i_L(0_+)=i_L(0_-)$，容易看出 $i_L(\infty)=0$ ($1'$)。利用外加
-    电源法可求得 $R_\mathrm{eq}=\unit{12}{\ohm}$ ($3'$)，因此 $\tau
-    =L/R_\mathrm{eq}=\unit{1/4}{\second}$ ($3'$)。套用三要素法可得
-    \[\begin{aligned}
-    i_L(t)&=i_L(\infty)+[i_L(0_+)-i_L(\infty)]\mathrm{e}^{-t/\tau} \\
-    &=5\mathrm{e}^{-4t}\unit{}{\ampere}\quad\quad (3')
-    \end{aligned}\]
-    $u_L(t)=-60\mathrm{e}^{-4t}\unit{}{\volt}$ ($2'$)。
+    各列一个 KCL 和 KVL 方程可解得
+     $\dot{I}_1=5\sqrt{2}\Varangle{-45\degree}$，
+    $\dot{I}_2=5\sqrt{2}\Varangle{45\degree}$。
+    电流源电压 $\dot{U}=50-\jimag 150\unit{}{\volt}$，于是 $S=
+    \dot{U}\dot{I}^*=(500-\jimag 1500)\unit{}{\volt\cdot\ampere}$。
     \end{answer}
 \end{question}
 
+\begin{question}
+    试求下列两电路的输入阻抗 $Z$ 和导纳 $Y$。
+    \begin{figure}[H]
+    \hfil
+    \input fig10\hfil
+    \input fig11
+    \end{figure}
+    \examvspace*{7cm}
+    \begin{answer}
+    (a) 容易求得 $Z=(2-\jimag 1)\unit{}{\ohm}$ ($3'$)，$Y=1/Z=(0.4+\jimag
+    0.2)\unit{}{\siemens}$ ($2'$)；
+
+    (b) $Z=\unit{40}{\ohm}$ ($3'$)，$Y=\unit{0.025}{\siemens}$ ($2'$)。
+    \end{answer}
+\end{question}
+
+\begin{question}
+    图示电路中，开关 S 动作前电路已达稳定状态，原合在位置 1，$t=0$ 时
+     S 由位置 1 合向位置 2，求
+     $t\geq 0$ 时电感电流 $i_L$ 和电压 $u_L$ 的响应。
+    \begin{figure}[H]
+    \hfill
+    \input fig06
+    \end{figure}
+    \examvspace*{10cm}
+    \begin{answer}
+    先求 $i_L(0_-)$，解得 $i_L(0_-)=\unit{5}{\ampere}$ ($3'$)。则
+     $i_L(0_+)=i_L(0_-)$，容易看出 $i_L(\infty)=0$ ($1'$)。利用外加
+    电源法可求得 $R_\mathrm{eq}=\unit{12}{\ohm}$ ($3'$)，因此 $\tau
+    =L/R_\mathrm{eq}=\unit{1/4}{\second}$ ($3'$)。套用三要素法可得
+    \[
+    i_L(t)=i_L(\infty)+[i_L(0_+)-i_L(\infty)]\mathrm{e}^{-t/\tau} \\
+    =5\mathrm{e}^{-4t}\unit{}{\ampere}\quad\quad (3')
+    \]
+    $u_L(t)=-60\mathrm{e}^{-4t}\unit{}{\volt}$ ($2'$)。
+    \end{answer}
+\end{question}
 \end{shortanswer}
 
 \end{document}
