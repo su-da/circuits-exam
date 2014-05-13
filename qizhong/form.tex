@@ -10,15 +10,17 @@
 \usepackage[scale={.8,.85},footskip=12pt]{geometry}
 \usepackage{lastpage,float}
 \NumberOfVersions{1}
-\usepackage[BoldFont, SlantFont, CJKnormalspaces]{xeCJK}
-\defaultfontfeatures{Scale=MatchLowercase,Mapping=tex-text}
-\setmainfont[]{Minion Pro}
-\setsansfont{Lucida Sans}
-\setmonofont{Lucida Sans Typewriter}
-\setCJKmainfont{SimSun}
+\usepackage[PunctStyle=kaiming]{xeCJK}
+\setmainfont{Minion Pro}
+\setsansfont{Lucida Sans Std}
+\setmonofont{Lucida Sans Typewriter Std}
+\setCJKmainfont[BoldFont={STZhongsong},
+                ItalicFont={KaiTi},
+                SlantedFont={FangSong}]{SimSun}
 \setCJKsansfont{SimHei}
-\setCJKmonofont{SimSun}
-\punctstyle{kaiming}
+\setCJKmonofont[BoldFont={STZhongsong},
+                ItalicFont={KaiTi},
+                SlantedFont={FangSong}]{SimSun}
 \usepackage{graphicx}
 %\usepackage{floatflt}
 \newcommand{\chuhao}{\fontsize{42pt}{\baselineskip}\selectfont}

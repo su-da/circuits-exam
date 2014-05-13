@@ -2,27 +2,30 @@
 \XeTeXinputencoding "GBK"
 \documentclass[a4paper,12pt]{examdesign}
 \usepackage{tikz}
+\usepackage{amsmath}
 \usepackage{mathptmx}
 \usepackage{mathrsfs,pifont}
-\usepackage{amsmath, amssymb}
-\usepackage[thinspace,thinqspace, squaren]{SIunits}
-\usepackage[scale={.8,.85},footskip=12pt]{geometry}
+%\usepackage{stmaryrd}
+%\usepackage{amsmath, amssymb}
+%\usepackage[thinspace,thinqspace, squaren]{SIunits}
+\usepackage[thinspace,thinqspace]{SIunits}
+\usepackage[scale={.7865,.7581},footskip=48pt]{geometry}
 \usepackage{lastpage,float}
 \usepackage{graphicx}
-\usepackage[BoldFont, SlantFont, CJKnormalspaces]{xeCJK}
-\defaultfontfeatures{Scale=MatchLowercase,Mapping=tex-text}
-\setmainfont[]{Minion Pro}
-\setsansfont{Lucida Sans}
-\setmonofont{Lucida Sans Typewriter}
+%\usepackage{floatflt}
+\usepackage{xeCJK}
+\setmainfont{Minion Pro}
+\setsansfont{Lucida Sans Std}
+\setmonofont{Lucida Sans Typewriter Std}
 %\setmathrm{}
 %\setboldmathrm{}
-\setCJKmainfont{SimSun}
+\setCJKmainfont[BoldFont={STZhongsong},
+                ItalicFont={KaiTi},
+                SlantedFont={FangSong}]{SimSun}
 \setCJKsansfont{SimHei}
-\setCJKmonofont{SimSun}
-\punctstyle{kaiming}
-%\usepackage{floatflt}
-\NumberOfVersions{1}
-\usepackage{subfigure}
+\setCJKmonofont[BoldFont={STZhongsong},
+                ItalicFont={KaiTi},
+                SlantedFont={FangSong}]{SimSun}
 \newcommand{\chuhao}{\fontsize{42pt}{\baselineskip}\selectfont}
 \newcommand{\xiaochuhao}{\fontsize{36pt}{\baselineskip}\selectfont}
 \newcommand{\yihao}{\fontsize{28pt}{\baselineskip}\selectfont}
@@ -38,136 +41,164 @@
 
 \def\Varangle#1{\kern.75pt\vtop{\hbox{\kern-.75pt$/{#1}$}\kern-.35pt\hrule}}
 
+\NumberOfVersions{1}
+
 \begin{document}
 \DeclareGraphicsExtensions{.pdf}
 \renewcommand\figurename{图}
 \newcommand\AnswerLeading{解}
 \newcommand\jimag{\mathrm{j}}
 \SectionPrefix{}
-% \NoKey
+%\NoKey
 \NoRearrange
 \ShortKey
 \SectionFont{\large\bfseries}
 \examname{电路分析}
 \DefineAnswerWrapper{\begin{description}\item [\AnswerLeading:]}{\end{description}}
-\def\namedata{学号：\underline{\hspace{51pt}}\hspace{17pt}姓名：\underline{\hspace{51pt}}\hspace{17pt}成绩：\underline{\hspace{51pt}}}
-\class{院系：\underline{\hspace{51pt}}\hspace{17pt}年级：\underline{\hspace{51pt}}\hspace{17pt}专业：\underline{\hspace{51pt}}}
+\def\namedata{学号：\underline{\hspace{68pt}}\hspace{17pt}姓名：\underline{\hspace{68pt}}\hspace{17pt}成绩：\underline{\hspace{68pt}}}
+\class{院系：\underline{\hspace{68pt}}\hspace{17pt}年级：\underline{\hspace{68pt}}\hspace{17pt}专业：\underline{\hspace{68pt}}}
 \begin{examtop}
-\setcounter{version}{2}
+%\setcounter{version}{1}
 \begin{center}
+    {\Large \bf 苏州大学文正学院 \underline{\hspace{51pt}\examtype\hspace{51pt}}课程} \medskip \\
 \begin{tabular}{r}
-{\Large \bf 苏州大学\underline{\examtype}课程试卷
-}\hspace{17pt}(\textsf{\Alph{version}})卷\hspace{17pt}共 5 页\medskip\\考试形式\underline{闭}卷\hspace{17pt}2012 年 6 月
+    {\Large \bf \hspace{200pt} 期 \underline{末} 试卷 \hspace{17pt}(\textsf{\Alph{version}}) 卷\hspace{34pt}共 4 页}\medskip\\
+    {\large \hspace{200pt} 考试形式 \underline{闭卷}\hspace{17pt}2013 年 6 月}
 \end{tabular}
 \\\bigskip
-\classdata\\ \namedata
+{\large \classdata\\ \namedata}
 \end{center}
 \bigskip
 \end{examtop}
 \begin{keytop}
 \begin{center}
-{\bf\Large 苏州大学\underline{\examtype}课程}\hspace{17pt}(\textsf{\Alph{version}})卷参考答案\hspace{17pt}共 \pageref{LastPage} 页\bigskip\\
-院系：\underline{\hspace{51pt}}\hspace{17pt}专业：\underline{\hspace{51pt}}
+    {\Large \bf 苏州大学文正学院 \underline{\hspace{51pt}\examtype\hspace{51pt}}课程} \medskip \\
+\begin{tabular}{r}
+    {\Large \bf \hspace{150pt} 期 \underline{末} 试卷 (\textsf{\Alph{version}}) 卷\hspace{17pt}参考答案\hspace{34pt}共 \pageref{LastPage} 页}\medskip\\
+    {\large \hspace{150pt} 考试形式 \underline{闭卷}\hspace{17pt}2013 年 6 月}
+\end{tabular}
 \end{center}
 \bigskip
 \end{keytop}
 
 \newcommand\mathdot[1]{\dot#1}
 
-\begin{shortanswer}[title={计算题 (每题 10 分，共 100 分)}]
+\begin{shortanswer}[title={计算题}]
 %\begin{shortanswer}[title={\begin{description}\item[二、]计算题(每
 %题10分，共50分)\end{description}}]
 \begin{question} % 01
-    电路如下图所示，试求其中受控源的功率(须说明是吸收还是发出)。
+    求电路图中各电源的功率（说明是吸收还是发出）。(10 分)
     \begin{figure}[H]
     \hfill
     \input fig01
     \end{figure}
-    \examvspace*{5cm}
+    \examvspace*{2cm}
     \begin{answer}
-    列回路方程
-    \[
-    2 \times 0.5 + 2U-U=0
-    \]
-    解得 $U=-\unit{1}{\volt}$ ($3'$)，受控源吸收功率为 $2U \times 0.5=-\unit{1}{\watt}$ ($2'$)。
+        电流源吸收功率 $P_\mathrm{I} = 1 \times 1 = \unit{1}{\watt}$ (3
+        分)，电压源电流(向上)满足 $1/1\times 1 = I - 1$(4 分)，所以电压源发出功率 $I \times 1 = \unit{2}{\watt}$(3 分)。
     \end{answer}
 \end{question}
 
 \begin{question} % 02
-    求下图所示电路的电流 $I$。
+    求下图所示电路的电流 $I$。(12 分)
     \begin{figure}[H]
     \hfill
     \input fig02
     \end{figure}
-    \examvspace*{7cm}
+    \examvspace*{4cm}
     \begin{answer}
-    利用电源等效变换可求得 $I=\unit{0.125}{\ampere}$ (每步 $2'$)。
+        用回路电流法。上边网孔顺时针，大小为 $\unit{1}{\ampere}$，
+        左下角网孔顺时针大小为 $I$，横跨下面俩网孔电流顺时针，大小设为
+        $I_1$。列方程如下：
+        \begin{equation*}
+        \left.\begin{aligned}
+        (5+5+30)I+(5+5)I_1-5\times 1&=30\\
+        (5+5)I+(5+5+20)I_1-(5+20)\times 1&=30-5
+        \end{aligned}\right\}
+        \end{equation*}
+        解得 $I = \unit{0.5}{\ampere}$。
     \end{answer}
 \end{question}
 
 \begin{question} %03
-    求下图所示电路中的 $U$ 和 $I$。
+    列写以下电路的结点电压方程并求解之。(12 分)
     \begin{figure}[H]
     \hfill
     \input fig03
     \end{figure}
     \examvspace*{7cm}
     \begin{answer}
-    应用节点法。取最上面节点为参考节点，右边为节点 1，左边为节点 2，
-    中间为节点 3 ($2'$)。则 $U_\mathrm{n1}=\unit{100}{\volt}$，
-    $U_\mathrm{n2}=100+110=\unit{210}{\volt}$ ($2'$)，有方程
-    \[
-    -0.5U_\mathrm{n1}-0.5U_\mathrm{n2}+U_\mathrm{n3}=20
-    \] ($4'$)解得 $U_\mathrm{n3}=\unit{175}{\volt}$，$U=U_\mathrm{n3}+1\times
-    20=\unit{195}{\volt}$，$I=-(U_\mathrm{n2}-90)/1=\unit{-120}{\ampere}$ ($2'$)。
+        取下面结点为参考零点，左上和右上分别为 $U_\mathrm{n1}$ 和
+        $U_\mathrm{n2}$，列方程如下。
+        \begin{equation*}
+        \left.\begin{aligned}
+            (1/2+1/2)U_\mathrm{n1}-1/2U_\mathrm{n2}&=2I \\
+           -1/2U_\mathrm{n1}+(1/2+1/4)U_\mathrm{n2}&=1 \\
+                                                 I &= U_\mathrm{n2}/4
+        \end{aligned}\right\}
+        \end{equation*}
+        解得 $U_\mathrm{n1}=U_\mathrm{n2}=\unit{4}{\volt}$，
+        $I=\unit{1}{\ampere}$。
     \end{answer}
 \end{question}
 
 \begin{question} % 04
-    求图中的 $U_\mathrm{x}$。
+    求图示电路的戴维宁或诺顿等效电路。(12 分)
     \begin{figure}[H]
     \hfill
     \input fig04
     \end{figure}
-    \examvspace*{3cm}
+    \examvspace*{7cm}
     \begin{answer}
-    列节点电压方程，$(24 + 32)I - 24 \times 0.15 - 32 \times 0.05 U_\mathrm{x}
-    = 20$，$U_\mathrm{x} = 32(I - 0.05 U_\mathrm{x}$。解得 $U_\mathrm{x} = \unit{8}{\volt}$。
+        等效电阻为 $R_\mathrm{eq}=\unit{10}{\ohm}$，开路电压(上正下负)为
+        $U_\mathrm{OC}=\unit{5}{\volt}$。
     \end{answer}
 \end{question}
 
 \begin{question} % 05
-    求图示电路的戴维宁或诺顿等效电路。
+    下图电路的 $R$ 可变，问其为何值时可获得最大功率，最大功率为多少？(12 分)
     \begin{figure}[H]
     \hfill
     \input fig05
     \end{figure}
-    \examvspace*{8cm}
+    \examvspace*{6cm}
     \begin{answer}
-    开路电压 $U_\mathrm{OC}=2I_1-2I_1=0$ ($3'$)。用外加电源法求输入电阻
-    ，加一电压源 $u$ ($1'$)，可解得伏安关系为 $u=7i$ ($4'$)，故等效电阻为 $R_\mathrm{eq}=u/i=\unit{7}{\ohm}$ ($2'$)。
+        去掉 $R$ 后的电路开路电压(上正下负)为 $U_\mathrm{OC}=4\times 4 +
+        \frac{3}{6+3}24=\unit{24}{\volt}$，等效电路
+        $R_\mathrm{eq}=6\parallel 3 + 4=\unit{6}{\ohm}$。最大功率条件
+        $R=R_\mathrm{eq}=\unit{6}{\ohm}$，最大功率为
+        $P_\mathrm{max}=U_\mathrm{OC}^2/(4R_\mathrm{eq})=\unit{24}{\watt}$。
     \end{answer}
 \end{question}
 
 \begin{question} %06
-    已知下图电路中 $I_1=I_2=\unit{10}{\ampere}$，求 $\dot{I}$ 和
-     $\dot{U}_\mathrm{S}$。(设 $\dot{I}_1$ 的初相角为 $0\degree$)
+    图示电路原已稳定，$t = 0$ 时合上开关 $S$，求电感电流 $i_L(t)$。(12 分)
+    \begin{figure}[H]
+    \hfill
+    \input fig06
+    \end{figure}
+    \examvspace*{7cm}
+    \begin{answer}
+        $i_L(\infty)=i_L(0_+)=i_L(0_-)=12/6=\unit{2}{\ampere}$，根
+        据三要素法公式得 $i_L(t)=\unit{2}{\ampere}$。
+    \end{answer}
+\end{question}
+
+\begin{question} %07
+    求下图电路的输入阻抗 $Z$ 和导纳 $Y$。(10 分)
     \begin{figure}[H]
     \hfill
     \input fig07
     \end{figure}
-    \examvspace*{8cm}
+    \examvspace*{3cm}
     \begin{answer}
-    设 $\dot{I}_1=10\Varangle{0\degree}$ ($2'$)，则
-    $\dot{I}_2=10\Varangle{90\degree}$ ($2'$)，于是
-     $\dot{I}=\dot{I}_1+\dot{I}_2=10\sqrt{2}\Varangle{45\degree}$ ($3'$)。
-    $\dot{U}_\mathrm{S}=\mathrm{j}10\dot{I}+10\dot{I}_1=\jimag
-    \unit{100}{\volt}$ ($3'$)。
+    $Z=(\jimag \omega L \dot{I}-r\dot{I})/\dot{I}=\jimag\omega L-r$
+    ($6'$)，$Y=1/(\jimag\omega L-r)$ ($4'$)。
     \end{answer}
 \end{question}
 
-\begin{question} % 07
-    给出图中电路的结点电压方程和回路电流方程。
+\begin{question} % 08
+    给出图中电路的结点电压方程和回路电流方程。(20 分)
     \begin{figure}[H]
     \hfill
     \input fig08
@@ -175,73 +206,23 @@
     \examvspace*{7cm}
     \begin{answer}
     结点电压方程为
-    \[\left.\begin{aligned}
-    -\frac{1}{\jimag 5}\dot{U}_{\rm S}+\dot{U}_\mathrm{n2}-\dot{U}_\mathrm{n3}&=0\\
+    \begin{equation*}
+    \left.\begin{aligned}
+        -\frac{1}{\jimag 5}10\Varangle{\unit{0}{\degree}}+\dot{U}_\mathrm{n2}-\dot{U}_\mathrm{n3}&=0\\
     -\dot{U}_\mathrm{n2}+\dot{U}_\mathrm{n3}&=-g\dot{U}_{\rm o}\\
-    \dot{U}_{\rm S}-\dot{U}_\mathrm{n3}&=\dot{U}_{\rm o}
-    \end{aligned}\right\}\]
+    10\Varangle{\unit{0}{\degree}}-\dot{U}_\mathrm{n3}&=\dot{U}_{\rm o}
+    \end{aligned}\right\}
+    \end{equation*}
     网孔方程为
-    \[\left.\begin{aligned}
-    \jimag 5g\dot{U}_{\rm o}&=\dot{U}_{\rm S}\\
+    \begin{equation*}
+    \left.\begin{aligned}
+    \jimag 5g\dot{U}_{\rm o}&=10\Varangle{\unit{0}{\degree}}\\
     \jimag 5\dot{I}_2+g\dot{U}_{\rm o}&=\dot{U}_{\rm o}
-    \end{aligned}\right\}\]
+    \end{aligned}\right\}
+    \end{equation*}
     \end{answer}
 \end{question}
 
-\begin{question} % 08
-    求下图电路中 $Z_\mathrm{L}$ 能够获得的最大功率。
-    \begin{figure}[H]
-    \hfill
-    \input fig09
-    \end{figure}
-    \examvspace*{8cm}
-    \begin{answer}
-    根据最大功率传输定理可以求得 $Z_\mathrm{L}$ 获得最大功率的条件为
-     $Z_\mathrm{L}=Z_\mathrm{eq}^*=\unit{20}{\ohm}$ ($3'$)。
-    $Z_\mathrm{L}$ 开路时用节点电压法易求得开路电压满足
-     $(1/20)\dot{U}_\mathrm{OC}=5\Varangle{0\degree}+100\Varangle{90\degree}/20$，解得 $\dot{U}_\mathrm{OC}=100\sqrt{2}\Varangle{45\degree}\unit{}{\volt}$
-    ($4'$)。$Z_\mathrm{L}$ 可获得的最大功率为
-     $P_\mathrm{Lmax}=\frac{U_\mathrm{OC}^2}{4R_\mathrm{eq}}=\unit{250}{\watt}$
-    ($3'$)。
-    \end{answer}
-\end{question}
-
-\begin{question} %09
-    试求下列两电路的输入阻抗 $Z$ 和导纳 $Y$。
-    \begin{figure}[H]
-    \hfil
-    \input fig10 \hfil
-    \input fig11
-    \end{figure}
-    \examvspace*{7cm}
-    \begin{answer}
-    (a) 容易求得 $Z=(1-\jimag 2)\unit{}{\ohm}$ ($3'$)，$Y=1/Z=(0.2+\jimag
-    0.4)\unit{}{\siemens}$ ($2'$)；
-
-    (b) $Z=(\jimag \omega L \dot{I}-r\dot{I})/\dot{I}=\jimag\omega L-r$
-    ($3'$)，$Y=1/(\jimag\omega L-r)$ ($2'$)。
-    \end{answer}
-\end{question}
-
-\begin{question}
-    图示电路中，开关 S 闭合前电路已达稳定状态，$t=0$ 时 S 闭合，求
-     $t\geq 0$ 时电容电压 $u_C$ 的响应。
-    \begin{figure}[H]
-    \hfill
-    \input fig06
-    \end{figure}
-    \examvspace*{10cm}
-    \begin{answer}
-    先求 $u_C(0_-)$，解得 $u_C(0_-)=\unit{-7}{\volt}$ ($3'$)。则
-     $u_C(0_+)=u_C(0_-)$，$u_\mathrm{OC}=\unit{3.5}{\volt}$ ($3'$)，利用外加
-    电源法可求得 $R_\mathrm{eq}=\unit{4}{\ohm}$ ($3'$)，因此 $\tau
-    =R_\mathrm{eq}C=\unit{2}{\second}$ ($3'$)。套用三要素法可得
-    \[
-    u_C(t)=u_C(\infty)+[u_C(0_+)-u_C(\infty)]\mathrm{e}^{-t/\tau} \\
-    =(3.5-10.5\mathrm{e}^{-0.5t})\unit{}{\volt}\quad\quad (3')
-    \]
-    \end{answer}
-\end{question}
 \end{shortanswer}
 
 \end{document}
