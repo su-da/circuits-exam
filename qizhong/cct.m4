@@ -4,181 +4,213 @@ include(/usr/local/lib/m4/circuit_macros/libcct.m4)
 % define(`elen_', (elen_*1.25))
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % fig 01
-% 当 $u_C = \mathrm{e}^{-2t} \unit{}{\volt}$ 时，求电压 $u$。
+% 由图示电路可求出U1=_________P5A=____ _______
 .PS
     cct_init
     elen = elen_
     Origin: Here
-    "$+$" below
-    resistor(right_ elen*1.2, E); llabel(,\unit{2}{\ohm},)
-    b_current(i,,)
-    capacitor(down_ elen*.6); llabel(,\unit{6}{\farad},)
-    rlabel(+,u_\mathrm{C},-)
-    line left_ elen*1.2; "$-$" above
-    gap(to Origin, 1); clabel(,u,)
+    source(up_ elen*1.4, v); llabel(-,\unit{15}{\volt},+)
+    line right_ elen*.8; dot
+    {
+        resistor(down_ Here.y-Origin.y, E); rlabel(,\unit{6}{\ohm},)
+        dot
+    }
+    line right_ elen*.8
+    resistor(down_ elen*.6, E); llabel(+,U_1,-);
+    rlabel(,\unit{2}{\ohm},);
+    source(down elen*.8, i); llabel(+,U_2,-); rlabel(,\unit{5}{\ampere},)
+    b_current(,,O,)
+    line to Origin
 .PE
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % fig 02
-% 当 $i_C = \mathrm{e}^{-t} \unit{}{\ampere}$ 时，求 $i$。
+% 求图示电路中各元件的功率，并说明是发出功率还是吸收功率。
 .PS
     cct_init
     elen = elen_
     Origin: Here
-    "$+$" below
-    arrowline(right_ elen*.6); llabel(,i,); dot
-    {
-        resistor(down_ elen*.8, E); rlabel(,\unit{3}{\siemens},); dot
-    }
-    line right_ elen/2
-    inductor(down_ elen*.8, W); llabel(,\unit{6}{\henry},)
-    b_current(i_\mathrm{L})
-    line left_ elen*1.1; "$-$" above
-    gap(to Origin, 1); clabel(,u,)
+    source(up_ elen, v); llabel(-,\unit{10}{\volt},+)
+    resistor(right_ elen, E); llabel(,\unit{1}{\ohm},)
+    source(down_ elen, i); llabel(+,U,-)
+    b_current(\unit{2}{\ampere},below_,O,E)
+    arrowline(left_ elen); llabel(,I,)
 .PE
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % fig 03
-% 已知 $u_{C_1}(0) = u_{C_2}(0) = \unit{5}{\volt}$，$i =
-% \mathrm{e}^{-5t}\unit{}{\ampere}$，求等效电容 $C$ 及 $u_C$。
-.PS
-    cct_init
-    elen = elen_
-    Origin: Here
-    "$+$" below
-    capacitor(right_ elen); llabel(,\unit{2}{\farad},)
-    rlabel(+, u_{C_1}, -)
-    b_current(i)
-    capacitor(down_ elen); rlabel(,\unit{8}{\farad},)
-    llabel(-, u_{C_2}, +)
-    line left_ elen; "$-$" above
-    gap(to Origin, 1); clabel(,u_C,)
-.PE
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% fig 04
-% 求图中 a、b 端的等效电感。
-.PS
-    cct_init
-    elen = elen_
-    Origin: Here
-    "a" rjust
-    inductor(right_ elen, W); llabel(,\unit{2}{\henry},); dot
-    {
-        inductor(down_ elen, W); llabel(,\unit{8}{\henry},); dot
-    }
-    line right elen*.6;
-    inductor(down_ elen, W); llabel(,\unit{8}{\henry},)
-    line left_ elen*.6
-    reversed(`inductor', left_ elen, W); rlabel(,\unit{8}{\henry},); "b" rjust
-    {
-        Point_(45); inductor(to rvec_(elen*sqrt(2),0), W);
-        dlabel(.12,.15,,\unit{6}{\henry},)
-    }
-    gap(to Origin, 1)
-.PE
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% fig 05
-% 如图所示电路，原已处于稳态，在t=0时开关 $S$ 断开，求uc(0+)和uL(0+).
+% 用等效变换求图示电路中的电流I 。
 .PS
     cct_init
     elen = elen_
     Origin: Here
     source(up_ elen*.8, v); llabel(-,\unit{12}{\volt},+)
-    switch(up_ elen*.8,, OD); rlabel(,S,)
-    line right_ elen*.6; dot
+    resistor(up_ elen*.8, E); llabel(,\unit{2}{\ohm},)
+    line right_ elen*.7; dot
     {
-        capacitor(down_ elen*.8); llabel(,\unit{1}{\farad},)
-        dot
-        {resistor(right_ elen, E); llabel(,\;\unit{3}{\ohm},); dot}
-        inductor(down_ elen*.8, W); rlabel(,\unit{2}{\henry},)
-        llabel(+,u_L,-); dot
+        resistor(down_ elen*.8, E); llabel(,\unit{2}{\ohm},)
+        source(down_ elen*.8, v); llabel(+,\unit{8}{\volt},-); dot
     }
-    line right_ elen
-    resistor(down_ elen*.8, E); llabel(,\unit{6}{\ohm},)
-    capacitor(down_ elen*.8); rlabel(,\unit{1}{\farad},)
-    llabel(+,u_C,-)
+    resistor(right_ elen, E); llabel(,\unit{3}{\ohm},)
+    b_current(I); dot
+    {
+        resistor(down_ elen*1.6, E); rlabel(,\unit{4}{\ohm},)
+        dot
+    }
+    line right_ elen*.7
+    resistor(down_ elen*.8, E); llabel(,\unit{4}{\ohm},)
+    source(down_ elen*.8, v); llabel(+,\unit{8}{\volt},-)
+    line left_ to Origin
+.PE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% fig 04
+% 求图所示电路的输入电阻Rin 。
+.PS
+    cct_init
+    elen = elen_
+    Origin: Here
+    resistor(left_ elen, E); llabel(,\unit{2}{\ohm},); dot
+    {
+        resistor(down_ elen*1.6, E); llabel(,\unit{8}{\ohm},)
+        b_current(i_1); dot
+    }
+    line left_ elen*.6
+    consource(down_ elen*.8, v); rlabel(+,4i_1,-)
+    resistor(down_ elen*.8, E); rlabel(,\unit{4}{\ohm},)
+    line right_ elen*1.6; gap(up_ elen*1.6, 1); rlabel(,R_\mathrm{in},)
+    move down_ elen*.8; line -> left_ elen*.3
+.PE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% fig 05
+% 求图示电路中电压U1，U2和电流I 。
+.PS
+    cct_init
+    elen = elen_
+    Origin: Here
+    source(up_ elen,i); llabel(-,U_1,+);
+    b_current(\unit{1}{\ampere},below_,O,E)
+    resistor(right_ elen*.8,E); llabel(,\unit{1}{\ohm},); dot
+    {resistor(down_ elen, E); dlabel(.15,.16,,\unit{2}{\ohm},); dot}
+    line right_ elen*.8; dot
+    {source(down_ elen, v); llabel(+,\unit{10}{\volt},-)
+    b_current(I,below_,O,E); dot}
+    resistor(right_ elen,E); llabel(,\unit{1}{\ohm},)
+    source(down_ elen, i); llabel(+,U_2,-)
+    b_current(\unit{2}{\ampere},below_,O,E)
     line to Origin
 .PE
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % fig 06
-% 图示RC电路，原处于直流稳态，当t=0时，开关从1投向2，求 $u_C$。
+% 试用叠加定理图示电路中电阻支路的电流I1、I3。
 .PS
     cct_init
     elen = elen_
     Origin: Here
-    source(up_ elen, v); llabel(-,\unit{3}{\volt},+)
-    reversed(`switch', right_ elen, L, OD); llabel(1,,)
-    resistor(right_ elen*.8, E); llabel(,\unit{2}{\ohm},)
-    capacitor(down_ elen); llabel(+,u_\mathrm{C}(t),-)
-    rlabel(,\unit{1}{\farad},)
-    line left_ elen*1.3; dot
-    {line left_ elen*.5}
-    source(up_ elen*.85, v); rlabel(-, \unit{5}{\volt}, +)
-    dot(,,1); "$2$" rjust
+    resistor(up_ elen, E); llabel(,\unit{1}{\ohm},I_1)
+    b_current(,,,E); dot;
+    {
+        line up_ elen*.6
+        source(right_ elen*2, i); llabel(,,\unit{2}{\ampere})
+        b_current(,,O,E)
+        line down_ elen*.6; dot;
+    }
+    resistor(right_ elen, E); b_current(,,O)
+    llabel(I_2,\unit{1}{\ohm},); dot;
+    {source(down_ elen, v); rlabel(+,\unit{4}{\volt},-); dot}
+    resistor(right_ elen, E); rlabel(,\unit{3}{\ohm},)
+    b_current(I_3,,O,E)
+    resistor(down_ elen, E); llabel(,\unit{1}{\ohm},)
+    b_current(I_4,,,)
+    line to Origin
 .PE
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % fig 07
-% 电路原已处于稳态，在 $t=0$ 时开关 $S$ 断开，求时的 $i_L(t)$ 和 $u(t)$。
+% 图示电路以I1、I2、I3为变量列出下图的网孔方程。
 .PS
     cct_init
     elen = elen_
     Origin: Here
-    source(up_ elen, i); llabel(,,\unit{3}{\ampere})
-    b_current(,,O,E)
-    line right_ elen*.6; dot
-    {
-        switch(down_ elen, , OD); rlabel(,S,); dot
-    }
+    source(up_ elen*1.6, v); llabel(-,\unit{5}{\volt},+)
     line right_ elen*.8; dot
     {
-        resistor(down_ elen, E); llabel(,\unit{6}{\ohm},);
-        rlabel(+,u(t),-); dot
+        resistor(down_ elen*.8, E); rlabel(,\unit{1}{\ohm},); dot
+        {
+        consource(right_ elen, v); llabel(+,5I_\mathrm{a},-); dot
+        }
+        resistor(down_ elen*.8, E); llabel(,\unit{3}{\ohm},)
+        b_current(I_\mathrm{a},below_); dot
     }
-    resistor(right_ elen, E); llabel(,\unit{3}{\ohm},)
-    inductor(down_ elen, W); llabel(,\unit{3}{\henry},)
-    b_current(i_L(t))
+    line right_ elen
+    resistor(down_ elen*.8, E); llabel(,\unit{4.5}{\ohm},)
+    resistor(down_ elen*.8, E); llabel(,\unit{4}{\ohm},)
     line to Origin
+#    spline -> from (elen*.2, elen*.2) up_ elen*1.2 then right_ elen*.2 then down_ elen*1.2
+#    move to (elen*.2, elen*.2); "$I_1$" ljust
+#    arcd((elen*1.2, elen*1.2), elen*.2, -160, -10) -> cw
+#    arcd((elen*1.2, elen*.4), elen*.2, 160, -90) -> cw
+#    move to (elen*1.3, elen*1.35); "$I_2$" above
+#    move to (elen*1.3, elen*.25); "$I_3$" below
 .PE
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % fig 08
-% 图示电路中，开关合在1时已达稳态。t=0时开关由1合向2，求t>0时的uL(t)。（
-% P140-例6-5书上开关箭头画错）
+% 用回路电流方程求图示电路中的电流I1 。
 .PS
     cct_init
     elen = elen_
     Origin: Here
-    dot
-    consource(left_ elen,v); rlabel(-,2i_1,+); dot
+    source(up_ elen, i); b_current(\unit{1}{\ampere},,O,E); dot
     {
-        resistor(up_ elen*1.5, E); rlabel(,\unit{4}{\ohm},);
-        b_current(i_1,below_,,E); dot
+        resistor(right_ elen*.8, E); llabel(,\unit{2}{\ohm},); dot
+        {
+            resistor(right_ elen*.8, E); llabel(,\unit{2}{\ohm},); dot
+        }
+        consource(down_ elen, i); b_current(2I_1,,O); dot
     }
-    line left_ elen*.4
-    source(up_ elen*1.5,i); b_current(\unit{2}{\ampere},,O,E)
-    line right_ elen*.4
-    resistor(right_ elen*.6,E); llabel(,\unit{4}{\ohm},)
-    reversed(`switch', right_ elen*.8, ,CD); llabel(,2,S)
-    line right_ elen*.6
-    inductor(down_ elen*1.5, W); llabel(+,u_L,-); rlabel(,\unit{0.1}{\henry},)
-    b_current(i_L,below_)
+    line up_ elen*.6
+    resistor(right_ elen*1.6, E); llabel(,\unit{1}{\ohm},)
+    b_current(\;\;I_1,,O,E)
+    line down_ elen*.6
+    resistor(down_ elen, E); llabel(,\unit{4}{\ohm},)
     line to Origin
-    resistor(up_ elen*.55, E); rlabel(,\unit{2}{\ohm},)
-    source(up_ elen*.8, v); llabel(+,\unit{8}{\volt},-); dot(,,1)
-    "$1$" ljust
 .PE
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % fig 09
-% 图示电路中，试求 $\mathdot{U}$。(8 分)
+% 求图示电路中的电流I和电压U。
 .PS
     cct_init
     elen = elen_
     Origin: Here
-    inductor(right_ elen, W); llabel(,\;\;\unit{j1}{\ohm},)
-    b_current(\mathdot{I}); dot
+    dot; "$-$" above rjust
     {
-        resistor(down_ elen, E); rlabel(,\unit{2}{\ohm},); dot
+        consource(up_ elen*.8, v); rlabel(-,3U,+); move down_ elen*.2
+        resistor(up_ elen*.8, E); rlabel(,\unit{2}{\ohm},)
+        dot; "$+$" rjust below
+        move down_ elen*.7
+        "$U$" rjust
     }
+    resistor(left_ elen, E); llabel(,\unit{2.5}{\ohm},)
+    source(up_ elen*1.4, v); llabel(-,\unit{8}{\volt},+)
+    b_current(I,below_)
+    resistor(right_ elen, E); rlabel(,\unit{1.5}{\ohm},)
     line right_ elen
-    capacitor(down_ elen); rlabel(,-\unit{j2}{\ohm},)
-    llabel(+,1\Varangle{0\degree}\unit{}{\volt},-)
-    line to (Origin.x, Here.y); "$-$" above
-    gap(up_ elen, 1); clabel(,\mathdot{U},); "$+$" below
+    source(down_ elen*1.4, i); b_current(\unit{1}{\ampere},,O)
+    line to Origin
+.PE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% fig 10
+% 求图示电路中的电流I和电压U。
+.PS
+    cct_init
+    elen = elen_
+    Origin: Here
+    resistor(up_ elen*1.4, E); llabel(,\unit{1}{\ohm},)
+    rlabel(-,U,+); line right_ elen; dot
+    {
+        consource(down_ elen*1.4, i); b_current(1U,below_,O,E); dot
+    }
+    resistor(right_ elen, E); b_current(I,,O)
+    llabel(,\unit{2}{\siemens},)
+    source(down_ elen*.8, v); llabel(+,\unit{5}{\volt},-)
+    move up_ elen*.2
+    resistor(down_ elen*.8, E); llabel(,\unit{2}{\siemens},)
+    consource(left_ elen, v); rlabel(-,1I,+)
+    line to Origin
 .PE

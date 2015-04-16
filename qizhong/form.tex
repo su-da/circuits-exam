@@ -6,13 +6,15 @@
 \usepackage{stmaryrd}
 \usepackage{amsmath}
 \usepackage[thinspace,thinqspace,squaren]{SIunits}
-\usepackage[scale={.8,.8},footskip=12pt]{geometry}
+\usepackage[paperwidth=195mm,paperheight=270mm,scale={.9,.85},footskip=12pt,marginparsep=0pt,includemp=true,reversemp=true,marginparwidth=38pt]{geometry}
 \usepackage{lastpage,float}
 \NumberOfVersions{1}
 \usepackage[MnSymbol]{mathspec}
 \usepackage[fullfamily,opticals,swash,minionint,openg,lf]{MinionPro}
+% \usepackage{xltxtra,xunicode}
 \usepackage[PunctStyle=quanjiao]{xeCJK}
 \setmainfont{Minion Pro}
+% \setmathfont(Greek){Minion Pro}
 \setsansfont{Myriad Pro}
 % \setmonofont{FreeMono}
 \setCJKmainfont[BoldFont={FZSongHei-B07S},
@@ -26,6 +28,7 @@
               SlantedFont={FZBaoSong-Z04S}]{FZXiDengXian-Z06S}
 \usepackage{graphicx}
 %\usepackage{floatflt}
+\usepackage{array}
 \newcommand{\chuhao}{\fontsize{42pt}{\baselineskip}\selectfont}
 \newcommand{\xiaochuhao}{\fontsize{36pt}{\baselineskip}\selectfont}
 \newcommand{\yihao}{\fontsize{28pt}{\baselineskip}\selectfont}
@@ -44,177 +47,193 @@
 \begin{document}
 \DeclareGraphicsExtensions{.pdf}
 \renewcommand\figurename{图}
+\newcommand{\bhline}{\noalign{\hrule height 1pt}}
+\newcommand{\defen}{\marginpar{\begin{tabular}{!{\vrule width 1pt}c!{\vrule width 1pt}}\bhline得分\\ \hline \\ \\ \bhline\end{tabular}}}
 \newcommand\AnswerLeading{解}
 \SectionPrefix{}
 % \NoKey
 \NoRearrange
 \ShortKey
-\SectionFont{\large\em}
-\examname{电路分析第四次过程考试}
+\ProportionalBlanks{1.5}
+\SectionFont{\large\bf}
+\examname{电路分析}
 \DefineAnswerWrapper{\begin{description}\item [\AnswerLeading:]}{\end{description}}
-\def\namedata{学号：\underline{\hspace{51pt}}\hspace{17pt}姓名：\underline{\hspace{51pt}}\hspace{17pt}成绩：\underline{\hspace{51pt}}}
-\class{院系：\underline{\hspace{51pt}}\hspace{17pt}年级：\underline{\hspace{51pt}}\hspace{17pt}专业：\underline{\hspace{51pt}}}
+\def\namedata{\large学号\underline{\hspace{126pt}}姓名\underline{\hspace{98pt}}成绩\underline{\hspace{98pt}}}
+\class{\large学院(部)\underline{\hspace{98pt}}年级\underline{\hspace{98pt}}专业\underline{\hspace{98pt}}}
 \begin{examtop}
 \begin{center}
 \begin{tabular}{r}
-{\Large \bf 苏州大学\underline{\examtype}课程试卷
-}\hspace{17pt}(\textsf{\Alph{version}}) 卷\hspace{17pt}共 4 页\medskip\\考试形式\underline{闭}卷\hspace{17pt}2014 年 5 月
+    {\Large \bf 苏州大学
+    \underline{\hspace{54pt}\examtype\hspace{54pt}} 课程}\hspace{9pt}\medskip \\
+    {\Large \bf 第 \underline{\hspace{9pt}\arabic{version}\hspace{9pt}} 次考试试卷
+    \hspace{36pt}共 4 页}\medskip\\
+    {\large考试形式 \underline{\hspace{7pt}闭卷\hspace{7pt}}\hspace{48pt}2015 年 4 月}
 \end{tabular}
 \\\bigskip
-\classdata\\ \namedata
+\classdata\\ \namedata \medskip\\
+{\normalsize \begin{tabular}{!{\vrule width 1pt}c|c|c|c|c|c|c|c|c|c|c!{\vrule width 1pt}}\bhline
+    题号 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\ \hline
+    题分 & 5 & 5 & 10 & 10 & 10 & 10 & 10 & 10 & 15 & 15 \\ \hline
+    得分 & & & & & & & & & & \\ \bhline
+\end{tabular}}
 \end{center}
-\bigskip
+% \bigskip
 \end{examtop}
 \begin{keytop}
 \begin{center}
-{\bf\Large 苏州大学\underline{\examtype}课程}\hspace{17pt}(\textsf{\Alph{version}}) 卷参考答案\hspace{17pt}共 \pageref{LastPage} 页\bigskip\\
-院系：\underline{\hspace{51pt}}\hspace{17pt}专业：\underline{\hspace{51pt}}
+\begin{tabular}{r}
+    {\Large \bf 苏州大学
+    \underline{\hspace{54pt}\examtype\hspace{54pt}} 课程}\hspace{9pt}\medskip \\
+    {\Large \bf \hspace{17pt}第 \underline{\hspace{9pt}\arabic{version}\hspace{9pt}} 次考试参考答案\hspace{12pt}共 \pageref{LastPage} 页}\medskip\\
+    {\large考试形式 \underline{\hspace{7pt}闭卷\hspace{7pt}}\hspace{48pt}2015 年 4 月}
+\end{tabular}
 \end{center}
 \bigskip
 \end{keytop}
 
 \newcommand\mathdot[1]{\dot#1}
 
-\begin{shortanswer}[title={计算题}]
+\begin{shortanswer} % [title={计算题}]
 
 \begin{question}
-    当 $u_C = \mathrm{e}^{-2t} \unit{}{\volt}$ 时，求电压 $u$。(10 分)
+    求图示电路中的 $U_1$ 和 $U_2$。(5 分\defen)
     \begin{figure}[H]
-        \hfill
-        \input fig01
+    \hfill
+    \input fig01
     \end{figure}
-    \examvspace*{1cm}
+    % \examvspace*{0cm}
     \begin{answer}
-        $i = 6u_\mathrm{C}' = -12\mathrm{e}^{-2t}\unit{}{\ampere}$，
-        $u = 2i + u_\mathrm{C} = -23\mathrm{e}^{-2t}\unit{}{\volt}$。
+        $U_1 = -2\times 5 = \unit{-10}{\volt}$，$U_2 = 10 + 15 = \unit{25}{\volt}$。
     \end{answer}
 \end{question}
 
 \begin{question}
-    当 $i_L = \mathrm{e}^{-t} \unit{}{\ampere}$ 时，求 $i$。(10 分)
-    %\examvspace{12pt}\\
+    求图示电路中各元件的功率，并说明实际是发出功率还是吸收功率。(5 分\defen)
     \begin{figure}[H]
     \hfill
     \input fig02
     \end{figure}
-    \examvspace*{1cm}
+    % \examvspace*{0cm}
     \begin{answer}
-        $u = 6i_\mathrm{L}' = -6\mathrm{e}^{-t}\unit{}{\volt}$，
-        $i = 3u + i_\mathrm{L} = -17\mathrm{e}^{-t}\unit{}{\ampere}$。
+        电流源两端电压 $U = -1 \times 2 + 10 = \unit{8}{\volt}$，电阻吸收的功率 $P_1 = \unit{4}{\watt}$，电压源的功率 $P_2 = 10I = \unit{20}{\watt}$，发出功率 $\unit{20}{\watt}$；电流源功率 $P_3 = \unit{16}{\watt}$，吸收功率 $\unit{16}{\watt}$。
     \end{answer}
 \end{question}
 
 \begin{question}
-    已知 $u_{C_1}(0) = \unit{5}{\volt}$，$u_{C_2}(0) = \unit{3}{\volt}$，$i = \mathrm{e}^{-5t}\unit{}{\ampere}$，求$u_C$ 及该串联电路的等效电容 $C$。(10 分)
+用等效变换求图示电路中的电流 $I$。(10 分\defen)
     \begin{figure}[H]
-    \hfill
-    \input fig03
+        \hfill
+        \input fig03
     \end{figure}
-    \examvspace*{1cm}
+    \examvspace*{2cm}
     \begin{answer}
-        $C=\unit{8/5}{\farad}$。
+        $I = (10-4)/(1+3+2)=\unit{1}{\ampere}$。
     \end{answer}
 \end{question}
 
 \begin{question}
-    求图中 a、b 端的等效电感。(10 分)
+    求图所示电路的输入电阻$ R_\mathrm{in}$。(10 分\defen)
+    %\examvspace{12pt}\\
     \begin{figure}[H]
     \hfill
     \input fig04
     \end{figure}
-    \examvspace*{0cm}
+    \examvspace*{3cm}
     \begin{answer}
-        $L_\mathrm{eq}=\unit{6}{\henry}$。
+        在端口上加电压源 $u$，设端口电流为 $i$，可列写方程
+    \begin{equation*}
+        \begin{aligned}
+            u &= 2i + 8i_1 \\
+            8i_1 &= 4i_1 + 4(i - i_1)
+        \end{aligned}
+    \end{equation*}
+    解得输入电阻为 $R_\mathrm{in} = \unit{6}{\ohm}$。
     \end{answer}
 \end{question}
 
 \begin{question}
-    如图所示电路，原已处于稳态，在 $t=0$ 时开关 $S$ 断开，求 $u_C(0_+)$
-    和 $u_L(0_+)$。(10 分)
+用回路电流法求图示电路中电压 $U_1$，$U_2$ 和电流 $I$。(10 分\defen)
     \begin{figure}[H]
     \hfill
     \input fig05
     \end{figure}
     \examvspace*{3cm}
     \begin{answer}
-        $u_C(0_+)=\unit{4}{\volt}$，$i_L(0_+)=\unit{4/3}{\ampere}$，
-        $u_L(0_+)=\unit{-4/3}{\volt}$。
+        $U_1 = 1\times 1 + 10 =\unit{11}{\volt}$，$U_2 = -1 \times 2 + 10 = \unit{8}{\volt}$，有 $-1 + 10/2 + I + 2 = 0$，得 $I = \unit{-6}{\ampere}$。
     \end{answer}
 \end{question}
 
 \begin{question}
-    图示RC电路，原处于直流稳态，当 $t=0$ 时，开关从1投向2，求 $u_C$。(10 分)
+用结点电压法求图示电路中电阻支路的电流 $I_1$、$I_3$。(10 分\defen)
     \begin{figure}[H]
     \hfill
     \input fig06
     \end{figure}
     \examvspace*{3cm}
     \begin{answer}
-        $u_C(t)=5-2\mathrm{e}^{-0.5t}\unit{}{\volt}$。
+        可解得 $I_1 = \unit{1}{\ampere}$，$I_3 = \unit{0.5}{\ampere}$。
     \end{answer}
 \end{question}
 
 \begin{question}
-    电路原已处于稳态，在 $t=0$ 时开关 $S$ 断开，求此时的 $i_L(t)$ 和
-    $u(t)$。(10 分)
+    用回路电流法求电流 $I_\mathrm{a}$。(10 分\defen)
     \begin{figure}[H]
     \hfill
     \input fig07
     \end{figure}
     \examvspace*{3cm}
     \begin{answer}
-        $i_L(t)=2(1-\mathrm{e}^{-3t})\unit{}{\ampere}$。
+        解得电流 $I_\mathrm{a} = \unit{2}{\ampere}$。
     \end{answer}
 \end{question}
 
 \begin{question}
-    图示电路中，开关合在 1 时已达稳态。$t=0$ 时开关由1合向2，求 $t>0$ 时
-    的 $i_1(t)$。(15 分)
+用结点电压法求图示电路中的电流 $I_1$。(10 分\defen)
     \begin{figure}[H]
     \hfill
     \input fig08
     \end{figure}
-    \examvspace*{18cm}
+    \examvspace*{3cm}
     \begin{answer}
-        $i_\mathrm{L}(0^+) = i_\mathrm{L}(0^-) = \unit{-4}{\volt}$，
-        $i_\mathrm{L}(\infty)=\unit{1.2}{\ampere}$，
-        $i_1(\infty)=\unit{0.8}{\ampere}$，
-        $i_1(0^+)=\unit{6}{\ampere}$，$\tau=\unit{0.01}{\second}$，
-        所以 $i_1(t)=0.8+5.2\mathrm{e}^{-100t}\unit{}{\ampere}$。
+        可解得 $I_1 = \unit{4}{\ampere}$。
     \end{answer}
 \end{question}
 
 \begin{question}
-    图示电路中，试求 $\dot{U}$。(8 分)
+    用两种方法(等效变换、回路法、结点法三选二)求电流 $I$ 和电压 $U$。(15 分\defen)
     \begin{figure}[H]
     \hfill
     \input fig09
     \end{figure}
-    \examvspace*{2cm}
+    \examvspace*{6cm}
     \begin{answer}
-        $\dot{I} = 1\Varangle{\unit{0}{\degree}}(0.5 + \mathrm{j}0.5) = \sqrt{2} / 2
-        \Varangle{\unit{45}{\degree}}$，$\dot{U} = \mathrm{j}1\dot{I} +
-        1\Varangle{\unit{0}{\degree}} = \sqrt{2} / 2
-        \Varangle{\unit{45}{\degree}}$。
+        回路法：
+    \begin{equation*}
+        \begin{aligned}
+            6I + 2\times 1 &= 8 - 3U \\
+            U &= 2(1+I)+3U
+        \end{aligned}
+    \end{equation*}
+    解得 $I = \unit{3}{\ampere}$，$U = \unit{-4}{\volt}$。结点法、等效变换略。
     \end{answer}
 \end{question}
 
 \begin{question}
-    已知某段电路的电压、电流分别为
+用两种方法(等效变换、回路法、结点法三选二)求电流 $I$ 和电压 $U$。 (15 分\defen)
+    \begin{figure}[H]
+    \hfill
+    \input fig10
+    \end{figure}
+    \examvspace*{6cm}
+    \begin{answer}
+        结点法：
     \begin{equation*}
         \begin{aligned}
-            \dot{U} &= -10\Varangle{\unit{-150}{\degree}}\unit{}{\volt} \\
-                  i &= 10\cos (200\pi t+\unit{340}{\degree})\unit{}{\ampere}
+            (1+1)U &= (5 - I)/1 -U \\
+            -U &= 1I + I - 5
         \end{aligned}
     \end{equation*}
-    (1)求它们的有效值、频率 $f$ 和周期 $T$。(2)写出它们的标准相量形式，
-    求两者相位差，指出哪个相位超前。(3)画出两者的相量图。(7 分)
-    \examvspace*{2cm}
-    \begin{answer}
-        $f=\unit{100}{\hertz}$，
-        $\dot{U}=10\Varangle{\unit{30}{\degree}}\unit{}{\volt}$，
-        $\dot{I}=5\sqrt{2}\Varangle{\unit{-20}{\degree}}\unit{}{\ampere}$
-        。电压 $\dot{U}$ 相位超前 $\unit{50}{\degree}$。
+    解得 $I = \unit{2}{\ampere}$，$U = \unit{1}{\volt}$。回路法、等效变换略。
     \end{answer}
 \end{question}
 
