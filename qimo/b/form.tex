@@ -2,30 +2,33 @@
 \XeTeXinputencoding "GBK"
 \documentclass[a4paper,12pt]{examdesign}
 \usepackage{tikz}
-\usepackage{amsmath}
-\usepackage{mathptmx}
 \usepackage{mathrsfs,pifont}
-%\usepackage{stmaryrd}
-%\usepackage{amsmath, amssymb}
-%\usepackage[thinspace,thinqspace, squaren]{SIunits}
-\usepackage[thinspace,thinqspace]{SIunits}
-\usepackage[scale={.7865,.7581},footskip=48pt]{geometry}
+\usepackage{stmaryrd}
+\usepackage{amsmath}
+\usepackage[thinspace,thinqspace,squaren]{SIunits}
+\usepackage[paperwidth=195mm,paperheight=270mm,scale={.9,.85},footskip=12pt,marginparsep=0pt,reversemp=true,marginparwidth=38pt]{geometry}
 \usepackage{lastpage,float}
+\NumberOfVersions{1}
+\usepackage[MnSymbol]{mathspec}
+\usepackage[fullfamily,opticals,swash,minionint,openg,lf]{MinionPro}
+% \usepackage{xltxtra,xunicode}
+\usepackage[PunctStyle=quanjiao]{xeCJK}
+\setmainfont{Minion Pro}
+% \setmathfont(Greek){Minion Pro}
+\setsansfont{Myriad Pro}
+% \setmonofont{FreeMono}
+\setCJKmainfont[BoldFont={FZSongHei-B07S},
+              ItalicFont={FZKaiTi},
+              SlantedFont={FZFangSongTi}]{FZShuSong-Z01}
+\setCJKsansfont[BoldFont={FZDaHei-B02S},
+              ItalicFont={FZLiShu II-S06S},
+              SlantedFont={FZCuYuan-M03S}]{FZHeiTi}
+\setCJKmonofont[BoldFont={FZZhongDengXian-Z07S},
+              ItalicFont={FZXiYuan-M01S},
+              SlantedFont={FZBaoSong-Z04S}]{FZXiDengXian-Z06S}
 \usepackage{graphicx}
 %\usepackage{floatflt}
-\usepackage{xeCJK}
-\setmainfont{Minion Pro}
-\setsansfont{Lucida Sans Std}
-\setmonofont{Lucida Sans Typewriter Std}
-%\setmathrm{}
-%\setboldmathrm{}
-\setCJKmainfont[BoldFont={STZhongsong},
-                ItalicFont={KaiTi},
-                SlantedFont={FangSong}]{SimSun}
-\setCJKsansfont{SimHei}
-\setCJKmonofont[BoldFont={STZhongsong},
-                ItalicFont={KaiTi},
-                SlantedFont={FangSong}]{SimSun}
+\usepackage{array}
 \newcommand{\chuhao}{\fontsize{42pt}{\baselineskip}\selectfont}
 \newcommand{\xiaochuhao}{\fontsize{36pt}{\baselineskip}\selectfont}
 \newcommand{\yihao}{\fontsize{28pt}{\baselineskip}\selectfont}
@@ -41,41 +44,50 @@
 
 \def\Varangle#1{\kern.75pt\vtop{\hbox{\kern-.75pt$/{#1}$}\kern-.35pt\hrule}}
 
-\NumberOfVersions{1}
-
 \begin{document}
 \DeclareGraphicsExtensions{.pdf}
 \renewcommand\figurename{图}
+\newcommand{\bhline}{\noalign{\hrule height 1pt}}
+\newcommand{\defen}{\marginpar{\begin{tabular}{!{\vrule width 1pt}c!{\vrule width 1pt}}\bhline 得分\\ \hline \\ \\ \bhline\end{tabular}}}
 \newcommand\AnswerLeading{解}
 \newcommand\jimag{\mathrm{j}}
 \SectionPrefix{}
-%\NoKey
+% \NoKey
 \NoRearrange
 \ShortKey
-\SectionFont{\large\bfseries}
+\ProportionalBlanks{1.5}
+\SectionFont{\large\bf}
 \examname{电路分析}
 \DefineAnswerWrapper{\begin{description}\item [\AnswerLeading:]}{\end{description}}
-\def\namedata{学号：\underline{\hspace{68pt}}\hspace{17pt}姓名：\underline{\hspace{68pt}}\hspace{17pt}成绩：\underline{\hspace{68pt}}}
-\class{院系：\underline{\hspace{68pt}}\hspace{17pt}年级：\underline{\hspace{68pt}}\hspace{17pt}专业：\underline{\hspace{68pt}}}
+\def\namedata{\large 学号\underline{\hspace{126pt}}姓名\underline{\hspace{98pt}}成绩\underline{\hspace{98pt}}}
+\class{\large 学院(部)\underline{\hspace{98pt}}年级\underline{\hspace{98pt}}专业\underline{\hspace{98pt}}}
 \begin{examtop}
-\setcounter{version}{2}
+\setcounter{version}{1}
 \begin{center}
-    {\Large \bf 苏州大学文正学院 \underline{\hspace{51pt}\examtype\hspace{51pt}}课程} \medskip \\
 \begin{tabular}{r}
-    {\Large \bf \hspace{200pt} 期 \underline{末} 试卷 \hspace{17pt}(\textsf{\Alph{version}}) 卷\hspace{34pt}共 4 页}\medskip\\
-    {\large \hspace{200pt} 考试形式 \underline{闭卷}\hspace{17pt}2013 年 6 月}
+    {\Large \bf 苏州大学
+    \underline{\hspace{54pt}\examtype\hspace{54pt}} 课程}\hspace{18pt}\medskip \\
+    {\Large \bf 期 \underline{\hspace{9pt}末\hspace{9pt}} 试卷 \hspace{17pt}(\textsf{\Alph{version}}) 卷
+    \hspace{36pt}共 4 页}\medskip\\
+    {\large 考试形式 \underline{\hspace{7pt}闭卷\hspace{7pt}}\hspace{48pt}2015 年 7 月}
 \end{tabular}
 \\\bigskip
-{\large \classdata\\ \namedata}
+\classdata\\ \namedata \medskip\\
+% {\normalsize \begin{tabular}{!{\vrule width 1pt}c|c|c|c|c|c|c|c|c|c|c!{\vrule width 1pt}}\bhline
+%     题号 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\ \hline
+%     题分 & 5 & 5 & 10 & 10 & 10 & 10 & 10 & 10 \\ \hline
+%     得分 & & & & & & & & \\ \bhline
+% \end{tabular}}
 \end{center}
-\bigskip
+% \bigskip
 \end{examtop}
 \begin{keytop}
 \begin{center}
-    {\Large \bf 苏州大学文正学院 \underline{\hspace{51pt}\examtype\hspace{51pt}}课程} \medskip \\
 \begin{tabular}{r}
-    {\Large \bf \hspace{150pt} 期 \underline{末} 试卷 (\textsf{\Alph{version}}) 卷\hspace{17pt}参考答案\hspace{34pt}共 \pageref{LastPage} 页}\medskip\\
-    {\large \hspace{150pt} 考试形式 \underline{闭卷}\hspace{17pt}2013 年 6 月}
+    {\Large \bf 苏州大学
+    \underline{\hspace{54pt}\examtype\hspace{54pt}} 课程}\hspace{34pt}\medskip \\
+    {\Large \bf \hspace{17pt}期 \underline{\hspace{9pt}末\hspace{9pt}} 试卷 (\textsf{\Alph{version}}) 卷\hspace{17pt}参考答案\hspace{17pt}共 \pageref{LastPage} 页}\medskip\\
+    {\large 考试形式 \underline{\hspace{7pt}闭卷\hspace{7pt}}\hspace{48pt}2015 年 7 月}
 \end{tabular}
 \end{center}
 \bigskip
@@ -83,16 +95,15 @@
 
 \newcommand\mathdot[1]{\dot#1}
 
-\begin{shortanswer}[title={计算题}]
+\begin{shortanswer} % [title={计算题}]
 %\begin{shortanswer}[title={\begin{description}\item[二、]计算题 (每
 %题 10 分，共 50 分)\end{description}}]
 \begin{question}
-    求电路图中各电源的功率（说明是吸收还是发出）。(10 分)
+    求图中电流源的功率（说明是实际吸收还是发出）。(10 分)
     \begin{figure}[H]
     \hfill
     \input fig01
     \end{figure}
-    \examvspace*{3cm}
     \begin{answer}
         电压源发出功率 $P_\mathrm{V} = 1 \times 1 = \unit{1}{\watt}$ (3
         分)，电流源电压(上正下负)为 $U = -2 \times 1 + 1 =
@@ -107,7 +118,6 @@
     \hfill
     \input fig02
     \end{figure}
-    \examvspace*{3cm}
     \begin{answer}
         回路电流法。取回路电流在三个网孔上，顺时针。左下角网孔电流为
         $I_1$，右下角网孔电流为 $I$，列回路方程。
@@ -122,12 +132,12 @@
 \end{question}
 
 \begin{question}
-    列出下图电路的结点电压方程并求解之。(12 分)
+    列写图中电路的结点电压方程并求解。(12 分)
     \begin{figure}[H]
     \hfill
     \input fig03
     \end{figure}
-    \examvspace*{5cm}
+    \examvspace*{2cm}
     \begin{answer}
         取下面结点为参考零点，左上和右上分别为 $U_\mathrm{n1}$ 和
         $U_\mathrm{n2}$。列方程得。
@@ -143,7 +153,7 @@
 \end{question}
 
 \begin{question}
-    求图示电路的戴维宁或诺顿等效电路。(12 分)
+    求下图电路的戴维宁或诺顿等效电路。(12 分)
     \begin{figure}[H]
     \hfill
     \input fig04
@@ -164,13 +174,13 @@
 \end{question}
 
 \begin{question}
-    下图中 $R_\mathrm{L}$ 为多大时 $R_\mathrm{L}$ 可获得最大功率，
-    并求此最大功率。(12 分)
+    $R_\mathrm{L}$ 为多大时 $R_\mathrm{L}$ 可获得最大功率，
+    求此最大功率。(12 分)
     \begin{figure}[H]
     \hfill
     \input fig05
     \end{figure}
-    \examvspace*{5cm}
+    \examvspace*{6cm}
     \begin{answer}
         负载电阻去除之后部分的戴维宁等效电路
         $R_\mathrm{eq}=\unit{10}{\ohm}$，
@@ -181,28 +191,28 @@
 \end{question}
 
 \begin{question}
-    下图电路中开关打开以前电路已达稳态，$t = 0$ 时开关 $S$ 打开。求 $t \geq 0$ 时的电容电流 $i_C(t)$。(12 分)
+    下图电路中开关打开以前电路已达稳态，$t = 0$ 时开关 $S$ 打开。求电容电流 $i_C(t)$。(12 分)
     \begin{figure}[H]
     \hfill
     \input fig06
     \end{figure}
-    \examvspace*{7cm}
+    \examvspace*{8cm}
     \begin{answer}
         初始条件 $u_C(0_+)=u_C(0_-)=\unit{3}{\volt}$，最终稳态
         $u_C(\infty)=\unit{6}{\volt}$，$R_\mathrm{eq}=\unit{200}{\ohm}$
         ，时间常数 $\tau = R_\mathrm{eq}C=\unit{0.2}{\second}$。
-        根据三要素法得 $u_C(t)=6-3\mathrm{e}^{-5t}$，微分得
-        $i_C(t)=15\mathrm{e}^{-5t}$。
+        根据三要素法得 $u_C(t)=6-3\mathrm{e}^{-5t}\unit{}{\volt}$，微分得
+        $i_C(t)=15\mathrm{e}^{-5t}\unit{}{\milli\ampere}$。
     \end{answer}
 \end{question}
 
 \begin{question}
-    试求下图电路的输入阻抗 $Z$ 和导纳 $Y$。(10 分)
+    求下图电路的输入阻抗 $Z$ 和输入导纳 $Y$。(10 分)
     \begin{figure}[H]
     \hfill
     \input fig07
     \end{figure}
-    \examvspace*{4cm}
+    \examvspace*{5cm}
     \begin{answer}
     容易求得 $Z=(2-\jimag 1)\unit{}{\ohm}$ ($6'$)，$Y=1/Z=(0.4+\jimag
     0.2)\unit{}{\siemens}$ ($4'$)。
@@ -210,7 +220,7 @@
 \end{question}
 
 \begin{question}
-    给出图中电路的结点电压方程和回路电流方程。(20 分)
+    列写图示电路的回路电流方程和结点电压方程。(20 分)
     \begin{figure}[H]
     \hfill
     \input fig08

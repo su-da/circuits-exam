@@ -6,7 +6,7 @@
 \usepackage{stmaryrd}
 \usepackage{amsmath}
 \usepackage[thinspace,thinqspace,squaren]{SIunits}
-\usepackage[paperwidth=195mm,paperheight=270mm,scale={.9,.85},footskip=12pt,marginparsep=0pt,reversemp=true,marginparwidth=38pt]{geometry}
+\usepackage[paperwidth=195mm,paperheight=270mm,scale={.9,.85},footskip=12pt,marginparsep=0pt,includemp=true,reversemp=true,marginparwidth=38pt]{geometry}
 \usepackage{lastpage,float}
 \NumberOfVersions{1}
 \usepackage[MnSymbol]{mathspec}
@@ -50,7 +50,6 @@
 \newcommand{\bhline}{\noalign{\hrule height 1pt}}
 \newcommand{\defen}{\marginpar{\begin{tabular}{!{\vrule width 1pt}c!{\vrule width 1pt}}\bhline 得分\\ \hline \\ \\ \bhline\end{tabular}}}
 \newcommand\AnswerLeading{解}
-\newcommand\jimag{\mathrm{j}}
 \SectionPrefix{}
 % \NoKey
 \NoRearrange
@@ -62,14 +61,13 @@
 \def\namedata{\large 学号\underline{\hspace{126pt}}姓名\underline{\hspace{98pt}}成绩\underline{\hspace{98pt}}}
 \class{\large 学院(部)\underline{\hspace{98pt}}年级\underline{\hspace{98pt}}专业\underline{\hspace{98pt}}}
 \begin{examtop}
-\setcounter{version}{2}
 \begin{center}
 \begin{tabular}{r}
     {\Large \bf 苏州大学
-    \underline{\hspace{54pt}\examtype\hspace{54pt}} 课程}\hspace{18pt}\medskip \\
-    {\Large \bf 期 \underline{\hspace{9pt}末\hspace{9pt}} 试卷 \hspace{17pt}(\textsf{\Alph{version}}) 卷
+    \underline{\hspace{54pt}\examtype\hspace{54pt}} 课程}\hspace{9pt}\medskip \\
+    {\Large \bf 期 \underline{\hspace{9pt}中\hspace{9pt}} 考试试卷
     \hspace{36pt}共 4 页}\medskip\\
-    {\large 考试形式 \underline{\hspace{7pt}闭卷\hspace{7pt}}\hspace{48pt}2015 年 7 月}
+    {\large 考试形式 \underline{\hspace{7pt}闭卷\hspace{7pt}}\hspace{48pt}2015 年 5 月}
 \end{tabular}
 \\\bigskip
 \classdata\\ \namedata \medskip\\
@@ -85,9 +83,9 @@
 \begin{center}
 \begin{tabular}{r}
     {\Large \bf 苏州大学
-    \underline{\hspace{54pt}\examtype\hspace{54pt}} 课程}\hspace{34pt}\medskip \\
-    {\Large \bf \hspace{17pt}期 \underline{\hspace{9pt}末\hspace{9pt}} 试卷 (\textsf{\Alph{version}}) 卷\hspace{17pt}参考答案\hspace{17pt}共 \pageref{LastPage} 页}\medskip\\
-    {\large 考试形式 \underline{\hspace{7pt}闭卷\hspace{7pt}}\hspace{48pt}2015 年 7 月}
+    \underline{\hspace{54pt}\examtype\hspace{54pt}} 课程}\hspace{9pt}\medskip \\
+    {\Large \bf \hspace{17pt}期 \underline{\hspace{9pt}中\hspace{9pt}} 考试参考答案\hspace{12pt}共 \pageref{LastPage} 页}\medskip\\
+    {\large 考试形式 \underline{\hspace{7pt}闭卷\hspace{7pt}}\hspace{48pt}2015 年 5 月}
 \end{tabular}
 \end{center}
 \bigskip
@@ -96,145 +94,103 @@
 \newcommand\mathdot[1]{\dot#1}
 
 \begin{shortanswer} % [title={计算题}]
-%\begin{shortanswer}[title={\begin{description}\item[二、]计算题(每
-%题10分，共50分)\end{description}}]
-\begin{question} % 01
-    求图中电压源的功率（说明是实际吸收还是发出）。(10 分)
+
+\begin{question}
+    求图示电路中各元件的功率，并说明实际是发出功率还是吸收功率。(10 分\defen)
     \begin{figure}[H]
     \hfill
     \input fig01
     \end{figure}
-    \examvspace*{0cm}
+    \examvspace*{3cm}
     \begin{answer}
-        电流源吸收功率 $P_\mathrm{I} = 1 \times 1 = \unit{1}{\watt}$ (3
-        分)，电压源电流(向上)满足 $1/1\times 1 = I - 1$(4 分)，所以电压源发出功率 $I \times 1 = \unit{2}{\watt}$(3 分)。
+        电流源两端电压 $U = -1 \times 2 + 10 = \unit{8}{\volt}$，电阻吸收的功率 $P_1 = \unit{4}{\watt}$，电压源的功率 $P_2 = 10I = \unit{20}{\watt}$，发出功率 $\unit{20}{\watt}$；电流源功率 $P_3 = \unit{16}{\watt}$，吸收功率 $\unit{16}{\watt}$。
     \end{answer}
 \end{question}
 
-\begin{question} % 02
-    求下图所示电路的电流 $I$。(12 分)
+\begin{question}
+    求电流 $I_\mathrm{AB}$。(12 分\defen)
     \begin{figure}[H]
     \hfill
     \input fig02
     \end{figure}
-    \examvspace*{2cm}
+    \examvspace*{4cm}
     \begin{answer}
-        用回路电流法。上边网孔顺时针，大小为 $\unit{1}{\ampere}$，
-        左下角网孔顺时针大小为 $I$，横跨下面俩网孔电流顺时针，大小设为
-        $I_1$。列方程如下：
-        \begin{equation*}
-        \left.\begin{aligned}
-        (5+5+30)I+(5+5)I_1-5\times 1&=30\\
-        (5+5)I+(5+5+20)I_1-(5+20)\times 1&=30-5
-        \end{aligned}\right\}
-        \end{equation*}
-        解得 $I = \unit{0.5}{\ampere}$。
+        电压源输出电流 \unit{4.5}{\ampere}，$I_\mathrm{AB}=\unit{1.5}{\ampere}$。
     \end{answer}
 \end{question}
 
-\begin{question} %03
-    求图中的电流 $I$。(12 分)
+\begin{question}
+求图所示电路的输入电阻 $R_\mathrm{in}$。(12 分\defen)
+    %\examvspace{12pt}\\
     \begin{figure}[H]
     \hfill
     \input fig03
     \end{figure}
-    \examvspace*{3cm}
+    \examvspace*{6cm}
     \begin{answer}
-        取下面结点为参考零点，左上和右上分别为 $U_\mathrm{n1}$ 和
-        $U_\mathrm{n2}$，列方程如下。
-        \begin{equation*}
-        \left.\begin{aligned}
-            (1/2+1/2)U_\mathrm{n1}-1/2U_\mathrm{n2}&=2I \\
-           -1/2U_\mathrm{n1}+(1/2+1/4)U_\mathrm{n2}&=1 \\
-                                                 I &= U_\mathrm{n2}/4
-        \end{aligned}\right\}
-        \end{equation*}
-        解得 $U_\mathrm{n1}=U_\mathrm{n2}=\unit{4}{\volt}$，
-        $I=\unit{1}{\ampere}$。
+        在端口上加电压源 $u$，设端口电流为 $i$，可列写方程 $u = 2(i-u)+1i=3i-2u$，解得输入电阻为 $R_\mathrm{in} = \unit{1}{\ohm}$。
     \end{answer}
 \end{question}
 
-\begin{question} % 04
-    求图示电路的戴维宁或诺顿等效电路。(12 分)
+\begin{question}
+求电流 $I$。(12 分\defen)
     \begin{figure}[H]
     \hfill
     \input fig04
     \end{figure}
-    \examvspace*{7cm}
+    \examvspace*{6cm}
     \begin{answer}
-        等效电阻为 $R_\mathrm{eq}=\unit{10}{\ohm}$，开路电压(上正下负)为
-        $U_\mathrm{OC}=\unit{5}{\volt}$。
+        $I = \unit{0.5}{\ampere}$。
     \end{answer}
 \end{question}
 
-\begin{question} % 05
-    $R$ 可变，问其为何值时可获得最大功率，求此最大功率。(12 分)
+\begin{question}
+用叠加定理求图示电路中电阻支路的电流 $I_1$、$I_3$。(12 分\defen)
     \begin{figure}[H]
     \hfill
     \input fig05
     \end{figure}
     \examvspace*{6cm}
     \begin{answer}
-        去掉 $R$ 后的电路开路电压(上正下负)为 $U_\mathrm{OC}=4\times 4 +
-        \frac{3}{6+3}24=\unit{24}{\volt}$，等效电路
-        $R_\mathrm{eq}=6\parallel 3 + 4=\unit{6}{\ohm}$。最大功率条件
-        $R=R_\mathrm{eq}=\unit{6}{\ohm}$，最大功率为
-        $P_\mathrm{max}=U_\mathrm{OC}^2/(4R_\mathrm{eq})=\unit{24}{\watt}$。
+        \unit{2}{\ampere} 电流源单独作用时为分别为 \unit{-1}{\ampere}、\unit{-0.5}{\ampere}。\unit{4}{\volt} 电压源单独作用时分别为 \unit{2}{\ampere}、\unit{1}{\ampere}。可解得 $I_1 = \unit{1}{\ampere}$，$I_3 = \unit{0.5}{\ampere}$。
     \end{answer}
 \end{question}
 
-\begin{question} %06
-    图示电路原已稳定，$t = 0$ 时合上开关 $S$，求电感电流 $i_L(t)$。(12 分)
+\begin{question}
+    $R_\mathrm{L}$ 可调，求 $R_\mathrm{L}$ 所能获得的最大功率。(12 分\defen)
     \begin{figure}[H]
     \hfill
     \input fig06
     \end{figure}
-    \examvspace*{8cm}
+    \examvspace*{7cm}
     \begin{answer}
-        $i_L(\infty)=i_L(0_+)=i_L(0_-)=12/6=\unit{2}{\ampere}$，根
-        据三要素法公式得 $i_L(t)=\unit{2}{\ampere}$。
+        解得开路电压 $U_\mathrm{OC} = \unit{-2}{\volt}$，$R_\mathrm{eq} = \unit{1}{\ohm}$，获得的最大功率为 \unit{1}{\watt}。
     \end{answer}
 \end{question}
 
-\begin{question} %07
-    求下图电路的输入阻抗 $Z$ 和输入导纳 $Y$。(10 分)
+\begin{question}
+求图示电路中的电流 $I_1$。(15 分\defen)
     \begin{figure}[H]
     \hfill
     \input fig07
     \end{figure}
-    \examvspace*{6cm}
+    \examvspace*{5cm}
     \begin{answer}
-    $Z=(\jimag \omega L \dot{I}-r\dot{I})/\dot{I}=\jimag\omega L-r$
-    ($6'$)，$Y=1/(\jimag\omega L-r)$ ($4'$)。
+        可解得 $I_1 = \unit{4}{\ampere}$。
     \end{answer}
 \end{question}
 
-\begin{question} % 08
-    给出图中电路的回路电流方程和结点电压方程。(20 分)
+\begin{question}
+求图示电路中电压U。(15 分\defen)
     \begin{figure}[H]
-    \hfill
-    \input fig08
+        \hfill
+        \input fig08
     \end{figure}
-    \examvspace*{7cm}
+    \examvspace*{2cm}
     \begin{answer}
-    结点电压方程为
-    \begin{equation*}
-    \left.\begin{aligned}
-        -\frac{1}{\jimag 5}10\Varangle{\unit{0}{\degree}}+\dot{U}_\mathrm{n2}-\dot{U}_\mathrm{n3}&=0\\
-    -\dot{U}_\mathrm{n2}+\dot{U}_\mathrm{n3}&=-g\dot{U}_{\rm o}\\
-    10\Varangle{\unit{0}{\degree}}-\dot{U}_\mathrm{n3}&=\dot{U}_{\rm o}
-    \end{aligned}\right\}
-    \end{equation*}
-    网孔方程为
-    \begin{equation*}
-    \left.\begin{aligned}
-    \jimag 5g\dot{U}_{\rm o}&=10\Varangle{\unit{0}{\degree}}\\
-    \jimag 5\dot{I}_2+g\dot{U}_{\rm o}&=\dot{U}_{\rm o}
-    \end{aligned}\right\}
-    \end{equation*}
+        $U =\unit{32}{\volt}$。
     \end{answer}
 \end{question}
 
 \end{shortanswer}
-
 \end{document}
