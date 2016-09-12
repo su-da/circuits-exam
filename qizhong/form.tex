@@ -1,80 +1,93 @@
-% -*- coding: GBK -*-
-\XeTeXinputencoding "GBK"
+% -*- coding: UTF-8 -*-
 \documentclass[a4paper,12pt]{examdesign}
-\usepackage{tikz}
-\usepackage{mathrsfs,pifont}
-\usepackage{stmaryrd}
-\usepackage{amsmath}
-\usepackage[thinspace,thinqspace,squaren]{SIunits}
-\usepackage[paperwidth=195mm,paperheight=270mm,scale={.9,.85},footskip=12pt,marginparsep=0pt,includemp=true,reversemp=true,marginparwidth=38pt]{geometry}
+\usepackage{amssymb,amsmath}
+\usepackage[range-phrase = \text{\~{}}, range-units = single,
+            binary-units]{siunitx}
+% \usepackage{mathrsfs,pifont}
+% \usepackage{stmaryrd}
+\usepackage[paperwidth=195mm,paperheight=270mm,scale={.8,.85},footskip=30pt]{geometry}
 \usepackage{lastpage,float}
 \NumberOfVersions{1}
-\usepackage[MnSymbol]{mathspec}
 \usepackage[fullfamily,opticals,swash,minionint,openg,lf]{MinionPro}
-% \usepackage{xltxtra,xunicode}
-\usepackage[PunctStyle=quanjiao]{xeCJK}
+\usepackage{mathspec}
+% \usepackage{unicode-math}
+\usepackage{xeCJK}
 \setmainfont{Minion Pro}
-% \setmathfont(Greek){Minion Pro}
 \setsansfont{Myriad Pro}
-% \setmonofont{FreeMono}
+\setmonofont{Consolas}
+\sisetup{
+    math-micro = \text{Î¼},
+    text-micro = Î¼,
+    math-ohm = \text{Î©},
+    text-ohm = Î©,
+}
+% \setmathfont{XITS Math}
+% \setmathfont[range=\mathup/{num,latin,Latin,greek,Greek}]{Minion Pro}
+% \setmathfont[range=\mathbfup/{num,latin,Latin,greek,Greek}]{MinionPro-Bold}
+% % \setmathfont[range=\mathit/{num,latin,Latin,greek,Greek}]{MinionPro-It}
+% \setmathfont[range=\mathbfit/{num,latin,Latin,greek,Greek}]{MinionPro-BoldIt}
+% \setmathfont[range=\mathscr,StylisticSet={1}]{XITS Math}
+% \setmathfont[range={"005B,"005D,"0028,"0029,"007B,"007D,"2211,"002F,"2215 } ]{Latin Modern Math} % brackets, sum, /
+% % \setmathfont[range={"002B,"002D,"003A-"003E} ]{MnSymbol} % + - < = >
+% \setmathfont[range={"1D454}]{Latin Modern Math} % openg
+% % \setmathrm{Minion Pro}
 \setCJKmainfont[BoldFont={FZSongHei-B07S},
               ItalicFont={FZKaiTi},
-              SlantedFont={FZFangSongTi}]{FZShuSong-Z01}
+              SlantedFont={FZFangSongTi}]{FZNewShuSong-Z10}
 \setCJKsansfont[BoldFont={FZDaHei-B02S},
               ItalicFont={FZLiShu II-S06S},
               SlantedFont={FZCuYuan-M03S}]{FZHeiTi}
 \setCJKmonofont[BoldFont={FZZhongDengXian-Z07S},
               ItalicFont={FZXiYuan-M01S},
               SlantedFont={FZBaoSong-Z04S}]{FZXiDengXian-Z06S}
+\defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
 \usepackage{graphicx}
+\usepackage{tikz}
 %\usepackage{floatflt}
 \usepackage{array}
-\newcommand{\chuhao}{\fontsize{42pt}{\baselineskip}\selectfont}
-\newcommand{\xiaochuhao}{\fontsize{36pt}{\baselineskip}\selectfont}
-\newcommand{\yihao}{\fontsize{28pt}{\baselineskip}\selectfont}
-\newcommand{\erhao}{\fontsize{21pt}{\baselineskip}\selectfont}
-\newcommand{\xiaoerhao}{\fontsize{18pt}{\baselineskip}\selectfont}
-\newcommand{\sanhao}{\fontsize{15.75pt}{\baselineskip}\selectfont}
-\newcommand{\sihao}{\fontsize{14pt}{\baselineskip}\selectfont}
-\newcommand{\xiaosihao}{\fontsize{12pt}{\baselineskip}\selectfont}
-\newcommand{\wuhao}{\fontsize{10.5pt}{\baselineskip}\selectfont}
-\newcommand{\xiaowuhao}{\fontsize{9pt}{\baselineskip}\selectfont}
-\newcommand{\liuhao}{\fontsize{7.875pt}{\baselineskip}\selectfont}
-\newcommand{\qihao}{\fontsize{5.25pt}{\baselineskip}\selectfont}
+
+\setlength{\parindent}{0pt}
+% \setlength{\parskip}{6pt plus 2pt minus 1pt}
+\linespread{1.3}
+\usepackage{enumitem}
+\setlist{itemsep=0.5\itemsep, parsep=0.5\parsep,
+         partopsep=0.5\partopsep, topsep=0.5\topsep}
 
 \def\Varangle#1{\kern.75pt\vtop{\hbox{\kern-.75pt$/{#1}$}\kern-.35pt\hrule}}
 
 \begin{document}
 \DeclareGraphicsExtensions{.pdf}
-\renewcommand\figurename{Í¼}
+\renewcommand\figurename{å›¾}
 \newcommand{\bhline}{\noalign{\hrule height 1pt}}
-\newcommand{\defen}{\marginpar{\begin{tabular}{!{\vrule width 1pt}c!{\vrule width 1pt}}\bhlineµÃ·Ö\\ \hline \\ \\ \bhline\end{tabular}}}
-\newcommand\AnswerLeading{½â}
+\newcommand{\defen}{\marginpar{\begin{tabular}{!{\vrule width 1pt}c!{\vrule width 1pt}}\bhline å¾—åˆ†\\ \hline \\ \\ \bhline\end{tabular}}}
+\newcommand\AnswerLeading{è§£}
 \SectionPrefix{}
 % \NoKey
 \NoRearrange
 \ShortKey
 \ProportionalBlanks{1.5}
 \SectionFont{\large\bf}
-\examname{µçÂ··ÖÎö}
+\ContinuousNumbering
+\examname{ç”µè·¯åˆ†æ}
 \DefineAnswerWrapper{\begin{description}\item [\AnswerLeading:]}{\end{description}}
-\def\namedata{\largeÑ§ºÅ\underline{\hspace{126pt}}ĞÕÃû\underline{\hspace{98pt}}³É¼¨\underline{\hspace{98pt}}}
-\class{\largeÑ§Ôº(²¿)\underline{\hspace{98pt}}Äê¼¶\underline{\hspace{98pt}}×¨Òµ\underline{\hspace{98pt}}}
+\def\namedata{\large å­¦å·\underline{\hspace{126pt}}å§“å\underline{\hspace{98pt}}æˆç»©\underline{\hspace{98pt}}}
+\class{\large å­¦é™¢(éƒ¨)\underline{\hspace{98pt}}å¹´çº§\underline{\hspace{98pt}}ä¸“ä¸š\underline{\hspace{98pt}}}
 \begin{examtop}
+\setcounter{version}{3}
 \begin{center}
 \begin{tabular}{r}
-    {\Large \bf ËÕÖİ´óÑ§
-    \underline{\hspace{54pt}\examtype\hspace{54pt}} ¿Î³Ì}\hspace{9pt}\medskip \\
-    {\Large \bf µÚ \underline{\hspace{9pt}\arabic{version}\hspace{9pt}} ´Î¿¼ÊÔÊÔ¾í
-    \hspace{36pt}¹² 4 Ò³}\medskip\\
-    {\large¿¼ÊÔĞÎÊ½ \underline{\hspace{7pt}±Õ¾í\hspace{7pt}}\hspace{48pt}2015 Äê 4 ÔÂ}
+    {\Large \bf è‹å·å¤§å­¦
+    \underline{\hspace{54pt}\examtype\hspace{54pt}} è¯¾ç¨‹}\hspace{9pt}\medskip \\
+    {\Large \bf ç¬¬ \underline{\hspace{9pt}\arabic{version}\hspace{9pt}} æ¬¡è€ƒè¯•è¯•å·
+    \hspace{36pt}å…± 6 é¡µ}\medskip\\
+    {\large è€ƒè¯•å½¢å¼ \underline{\hspace{7pt}é—­å·\hspace{7pt}}\hspace{48pt}2016 å¹´ 5 æœˆ}
 \end{tabular}
 \\\bigskip
 \classdata\\ \namedata \medskip\\
 {\normalsize \begin{tabular}{!{\vrule width 1pt}c|c|c|c|c|c|c|c|c|c|c!{\vrule width 1pt}}\bhline
-    ÌâºÅ & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\ \hline
-    Ìâ·Ö & 5 & 5 & 10 & 10 & 10 & 10 & 10 & 10 & 15 & 15 \\ \hline
-    µÃ·Ö & & & & & & & & & & \\ \bhline
+    é¢˜å· & ç¬¬ä¸€éƒ¨åˆ† & ç¬¬äºŒéƒ¨åˆ† \\ \hline
+    é¢˜åˆ† & 60 & 40 \\ \hline
+    å¾—åˆ† & & \\ \bhline
 \end{tabular}}
 \end{center}
 % \bigskip
@@ -82,10 +95,10 @@
 \begin{keytop}
 \begin{center}
 \begin{tabular}{r}
-    {\Large \bf ËÕÖİ´óÑ§
-    \underline{\hspace{54pt}\examtype\hspace{54pt}} ¿Î³Ì}\hspace{9pt}\medskip \\
-    {\Large \bf \hspace{17pt}µÚ \underline{\hspace{9pt}\arabic{version}\hspace{9pt}} ´Î¿¼ÊÔ²Î¿¼´ğ°¸\hspace{12pt}¹² \pageref{LastPage} Ò³}\medskip\\
-    {\large¿¼ÊÔĞÎÊ½ \underline{\hspace{7pt}±Õ¾í\hspace{7pt}}\hspace{48pt}2015 Äê 4 ÔÂ}
+    {\Large \bf è‹å·å¤§å­¦
+    \underline{\hspace{54pt}\examtype\hspace{54pt}} è¯¾ç¨‹}\hspace{9pt}\medskip \\
+    {\Large \bf \hspace{17pt}ç¬¬ \underline{\hspace{9pt}\arabic{version}\hspace{9pt}} æ¬¡è€ƒè¯•å‚è€ƒç­”æ¡ˆ\hspace{12pt}å…± \pageref{LastPage} é¡µ}\medskip\\
+    {\large è€ƒè¯•å½¢å¼ \underline{\hspace{7pt}é—­å·\hspace{7pt}}\hspace{48pt}2016 å¹´ 5 æœˆ}
 \end{tabular}
 \end{center}
 \bigskip
@@ -93,149 +106,193 @@
 
 \newcommand\mathdot[1]{\dot#1}
 
-\begin{shortanswer} % [title={¼ÆËãÌâ}]
-
+\begin{shortanswer}[title={ç¬¬ä¸€éƒ¨åˆ†}]
 \begin{question}
-    ÇóÍ¼Ê¾µçÂ·ÖĞµÄ $U_1$ ºÍ $U_2$¡£(5 ·Ö\defen)
+    ç”µè·¯åŸå·²å¤„äºç¨³æ€ï¼Œåœ¨ $t=0$ æ—¶å¼€å…³ $S$ æ–­å¼€ï¼Œæ±‚ $i_L(t)$ å’Œ
+    $u(t)$ã€‚\hfill(10\%)
     \begin{figure}[H]
     \hfill
     \input fig01
     \end{figure}
-    % \examvspace*{0cm}
+    \examvspace*{4cm}
     \begin{answer}
-        $U_1 = -2\times 5 = \unit{-10}{\volt}$£¬$U_2 = 10 + 15 = \unit{25}{\volt}$¡£
+        $i_L(t)=2(1-\mathrm{e}^{-3t})\SI{}{\ampere}$ï¼Œ
+        $u(t)=6+12\mathrm{e}^{-3t}\SI{}{V}$ã€‚
     \end{answer}
 \end{question}
 
 \begin{question}
-    ÇóÍ¼Ê¾µçÂ·ÖĞ¸÷Ôª¼şµÄ¹¦ÂÊ£¬²¢ËµÃ÷Êµ¼ÊÊÇ·¢³ö¹¦ÂÊ»¹ÊÇÎüÊÕ¹¦ÂÊ¡£(5 ·Ö\defen)
+    å›¾ç¤ºç”µè·¯ä¸­ï¼Œå¼€å…³åˆåœ¨ 1 æ—¶å·²è¾¾ç¨³æ€ã€‚$t=0$ æ—¶å¼€å…³ç”±1åˆå‘2ï¼Œæ±‚ $t>0$ æ—¶
+    çš„ $i_1(t)$ã€‚\hfill(15\%)
     \begin{figure}[H]
     \hfill
     \input fig02
     \end{figure}
-    % \examvspace*{0cm}
+    \examvspace*{14cm}
     \begin{answer}
-        µçÁ÷Ô´Á½¶ËµçÑ¹ $U = -1 \times 2 + 10 = \unit{8}{\volt}$£¬µç×èÎüÊÕµÄ¹¦ÂÊ $P_1 = \unit{4}{\watt}$£¬µçÑ¹Ô´µÄ¹¦ÂÊ $P_2 = 10I = \unit{20}{\watt}$£¬·¢³ö¹¦ÂÊ $\unit{20}{\watt}$£»µçÁ÷Ô´¹¦ÂÊ $P_3 = \unit{16}{\watt}$£¬ÎüÊÕ¹¦ÂÊ $\unit{16}{\watt}$¡£
+        $i_\mathrm{L}(0^+) = i_\mathrm{L}(0^-) = \SI{-4}{\volt}$ï¼Œ
+        $i_\mathrm{L}(\infty)=\SI{1.2}{\ampere}$ï¼Œ
+        $i_1(\infty)=\SI{0.8}{\ampere}$ï¼Œ
+        $i_1(0^+)=\SI{6}{\ampere}$ï¼Œ$\tau=\SI{0.01}{\second}$ï¼Œ
+        æ‰€ä»¥ $i_1(t)=0.8+5.2\mathrm{e}^{-100t}\SI{}{\ampere}$ã€‚
     \end{answer}
 \end{question}
 
 \begin{question}
-ÓÃµÈĞ§±ä»»ÇóÍ¼Ê¾µçÂ·ÖĞµÄµçÁ÷ $I$¡£(10 ·Ö\defen)
+    å·²çŸ¥æŸæ®µç”µè·¯çš„ç”µå‹ã€ç”µæµåˆ†åˆ«ä¸º
+    \begin{equation*}
+        \begin{aligned}
+            \dot{U} &= -10\Varangle{\SI{-150}{\degree}}\SI{}{\volt} \\
+                  i &= 10\cos (200\pi t+\SI{340}{\degree})\SI{}{\ampere}
+        \end{aligned}
+    \end{equation*}
+    (1)æ±‚å®ƒä»¬çš„æœ‰æ•ˆå€¼ã€é¢‘ç‡ $f$ å’Œå‘¨æœŸ $T$ã€‚(2)å†™å‡ºå®ƒä»¬çš„æ ‡å‡†ç›¸é‡å½¢å¼ï¼Œ
+    æ±‚ä¸¤è€…ç›¸ä½å·®ï¼ŒæŒ‡å‡ºå“ªä¸ªç›¸ä½è¶…å‰ã€‚(3)ç”»å‡ºä¸¤è€…çš„ç›¸é‡å›¾ã€‚\hfill(10\%)
+    \examvspace*{4cm}
+    \begin{answer}
+        $f=\SI{100}{\hertz}$ï¼Œ
+        $\dot{U}=10\Varangle{\SI{30}{\degree}}\SI{}{\volt}$ï¼Œ
+        $\dot{I}=5\sqrt{2}\Varangle{\SI{-20}{\degree}}\SI{}{\ampere}$
+        ã€‚ç”µå‹ $\dot{U}$ ç›¸ä½è¶…å‰ $\SI{50}{\degree}$ã€‚
+    \end{answer}
+\end{question}
+
+\begin{question}
+    ä¸‹å›¾ç”µè·¯ä¸­ï¼Œå¼€å…³æœªåŠ¨ä½œå‰ç”µè·¯å·²è¾¾ç¨³æ€ï¼Œ$t=0$ æ—¶å¼€å…³ $S$ æ‰“å¼€ã€‚\hfill(15\%)\\
+    (1) æ±‚ $u_C(0_+)$ã€$i_L(0_+)$ã€$i_R(0_+)$ï¼›\\
+    (2) æ±‚ $\left.\frac{\mathrm{d}u_C}{\mathrm{d}t}\right|_{0_+}$ã€
+    $\left.\frac{\mathrm{d}i_L}{\mathrm{d}t}\right|_{0_+}$ã€
+    $\left.\frac{\mathrm{d}i_R}{\mathrm{d}t}\right|_{0_+}$ï¼› \\
+    (3) è¯•ä»¥ $i_L$ ä¸ºæœªçŸ¥å‡½æ•°å†™å‡ºæ­¤ç”µè·¯çš„å¾®åˆ†æ–¹ç¨‹ï¼Œå¹¶æŒ‡å‡ºè¯¥ç”µè·¯æ˜¯å‡ é˜¶ç”µè·¯ã€‚
     \begin{figure}[H]
-        \hfill
-        \input fig03
+    \hfill
+    \input fig03
     \end{figure}
-    \examvspace*{2cm}
+    \examvspace*{15.5cm}
     \begin{answer}
-        $I = (10-4)/(1+3+2)=\unit{1}{\ampere}$¡£
+        (1) $u_C(0_+)=\SI{6}{V}$ã€$i_L(0_+)=\SI{2}{A}$ã€
+        $i_R(0_+)=\SI{1}{A}$ï¼›\\
+        (2)
+        $\left.\frac{\mathrm{d}u_C}{\mathrm{d}t}\right|_{0_+}=\SI{-24}{V/s}$ã€
+        $\left.\frac{\mathrm{d}i_L}{\mathrm{d}t}\right|_{0_+}=0$ã€
+        $\left.\frac{\mathrm{d}i_R}{\mathrm{d}t}\right|_{0_+}=\SI{4}{A/s}$ï¼›\\
+        (3) \[
+        \frac{\mathrm{d}^2i_L}{\mathrm{d}t^2} + 34
+        \frac{\mathrm{d}i_L}{\mathrm{d}t} + 360 i_L = 480
+        \]
     \end{answer}
 \end{question}
 
 \begin{question}
-    ÇóÍ¼ËùÊ¾µçÂ·µÄÊäÈëµç×è$ R_\mathrm{in}$¡£(10 ·Ö\defen)
-    %\examvspace{12pt}\\
+    å¦‚å›¾æ‰€ç¤ºç”µè·¯ã€‚\hfill(10\%) \\
+    (1) æŒ‡å‡º aã€b å³ä¾§ç»“æ„æ˜¯æœ‰æºç”µè·¯è¿˜æ˜¯æ— æºç”µè·¯ï¼Œå¹¶æ±‚è§£å…¶è¾“å…¥ç”µé˜»ã€‚ \\
+    (2) å½“ $u_\mathrm{s}=\SI{0}{V}$ æ—¶ï¼Œè¯•åˆ¤æ–­è¯¥ç”µè·¯çš„é›¶è¾“å…¥å“åº”æ˜¯æ¬ é˜»
+    å°¼ï¼Ÿè¿‡é˜»å°¼ï¼Ÿè¿˜æ˜¯ä¸´ç•Œé˜»å°¼ï¼Ÿ\\
+    (3) å½“ $u_\mathrm{s}=2\sqrt{2}\cos t$ \SI{}{V} æ—¶ï¼Œæ±‚æ­£å¼¦ç¨³æ€å“åº”
+    $\mathdot{I}$ã€$i(t)$ã€‚
     \begin{figure}[H]
     \hfill
     \input fig04
     \end{figure}
-    \examvspace*{3cm}
+    \examvspace*{15cm}
     \begin{answer}
-        ÔÚ¶Ë¿ÚÉÏ¼ÓµçÑ¹Ô´ $u$£¬Éè¶Ë¿ÚµçÁ÷Îª $i$£¬¿ÉÁĞĞ´·½³Ì
-    \begin{equation*}
-        \begin{aligned}
-            u &= 2i + 8i_1 \\
-            8i_1 &= 4i_1 + 4(i - i_1)
-        \end{aligned}
-    \end{equation*}
-    ½âµÃÊäÈëµç×èÎª $R_\mathrm{in} = \unit{6}{\ohm}$¡£
-    \end{answer}
-\end{question}
-
-\begin{question}
-ÓÃ»ØÂ·µçÁ÷·¨ÇóÍ¼Ê¾µçÂ·ÖĞµçÑ¹ $U_1$£¬$U_2$ ºÍµçÁ÷ $I$¡£(10 ·Ö\defen)
-    \begin{figure}[H]
-    \hfill
-    \input fig05
-    \end{figure}
-    \examvspace*{3cm}
-    \begin{answer}
-        $U_1 = 1\times 1 + 10 =\unit{11}{\volt}$£¬$U_2 = -1 \times 2 + 10 = \unit{8}{\volt}$£¬ÓĞ $-1 + 10/2 + I + 2 = 0$£¬µÃ $I = \unit{-6}{\ampere}$¡£
-    \end{answer}
-\end{question}
-
-\begin{question}
-ÓÃ½áµãµçÑ¹·¨ÇóÍ¼Ê¾µçÂ·ÖĞµç×èÖ§Â·µÄµçÁ÷ $I_1$¡¢$I_3$¡£(10 ·Ö\defen)
-    \begin{figure}[H]
-    \hfill
-    \input fig06
-    \end{figure}
-    \examvspace*{3cm}
-    \begin{answer}
-        ¿É½âµÃ $I_1 = \unit{1}{\ampere}$£¬$I_3 = \unit{0.5}{\ampere}$¡£
-    \end{answer}
-\end{question}
-
-\begin{question}
-    ÓÃ»ØÂ·µçÁ÷·¨ÇóµçÁ÷ $I_\mathrm{a}$¡£(10 ·Ö\defen)
-    \begin{figure}[H]
-    \hfill
-    \input fig07
-    \end{figure}
-    \examvspace*{3cm}
-    \begin{answer}
-        ½âµÃµçÁ÷ $I_\mathrm{a} = \unit{2}{\ampere}$¡£
-    \end{answer}
-\end{question}
-
-\begin{question}
-ÓÃ½áµãµçÑ¹·¨ÇóÍ¼Ê¾µçÂ·ÖĞµÄµçÁ÷ $I_1$¡£(10 ·Ö\defen)
-    \begin{figure}[H]
-    \hfill
-    \input fig08
-    \end{figure}
-    \examvspace*{3cm}
-    \begin{answer}
-        ¿É½âµÃ $I_1 = \unit{4}{\ampere}$¡£
-    \end{answer}
-\end{question}
-
-\begin{question}
-    ÓÃÁ½ÖÖ·½·¨(µÈĞ§±ä»»¡¢»ØÂ··¨¡¢½áµã·¨ÈıÑ¡¶ş)ÇóµçÁ÷ $I$ ºÍµçÑ¹ $U$¡£(15 ·Ö\defen)
-    \begin{figure}[H]
-    \hfill
-    \input fig09
-    \end{figure}
-    \examvspace*{6cm}
-    \begin{answer}
-        »ØÂ··¨£º
-    \begin{equation*}
-        \begin{aligned}
-            6I + 2\times 1 &= 8 - 3U \\
-            U &= 2(1+I)+3U
-        \end{aligned}
-    \end{equation*}
-    ½âµÃ $I = \unit{3}{\ampere}$£¬$U = \unit{-4}{\volt}$¡£½áµã·¨¡¢µÈĞ§±ä»»ÂÔ¡£
-    \end{answer}
-\end{question}
-
-\begin{question}
-ÓÃÁ½ÖÖ·½·¨(µÈĞ§±ä»»¡¢»ØÂ··¨¡¢½áµã·¨ÈıÑ¡¶ş)ÇóµçÁ÷ $I$ ºÍµçÑ¹ $U$¡£ (15 ·Ö\defen)
-    \begin{figure}[H]
-    \hfill
-    \input fig10
-    \end{figure}
-    \examvspace*{6cm}
-    \begin{answer}
-        ½áµã·¨£º
-    \begin{equation*}
-        \begin{aligned}
-            (1+1)U &= (5 - I)/1 -U \\
-            -U &= 1I + I - 5
-        \end{aligned}
-    \end{equation*}
-    ½âµÃ $I = \unit{2}{\ampere}$£¬$U = \unit{1}{\volt}$¡£»ØÂ··¨¡¢µÈĞ§±ä»»ÂÔ¡£
+        (1) æ— æºç”µè·¯ã€‚ç­‰æ•ˆä¸ºä¸€ä¸ªç”µé˜» $R_\mathrm{eq}=\SI{1}{\ohm}$ã€‚ \\
+        (2) å³ä¾§å¹¶è”ç»“æ„ç­‰æ•ˆç”µè·¯ $R=\SI{1}{\ohm}$ï¼Œç”µè·¯ä¸º $RLC$ ä¸²è”
+        ï¼Œ$\frac{R}{2} < \sqrt{\frac{L}{C}}$ï¼Œæ•…ä¸ºæ¬ é˜»å°¼å“åº”ã€‚\\
+        (3) ç”¨ç›¸é‡æ³•ã€‚$\dot{U}_\mathrm{s}=2\Varangle{\ang{0}}$ \SI{}{V}ï¼Œæ€»é˜»æŠ—
+        ä¸º $Z=\mathrm{j}1+1-\mathrm{j}2=1-\mathrm{j}1$ \SI{}{\ohm}ï¼Œæœ‰
+        $\dot{I}=\sqrt{2}\Varangle{\ang{45}}$\SI{}{A}ã€‚
     \end{answer}
 \end{question}
 
 \end{shortanswer}
+
+\begin{shortanswer}[title={ç¬¬äºŒéƒ¨åˆ†}]
+
+\begin{question}
+    å½“ $i_L = \mathrm{e}^{-t} \SI{}{\ampere}$ æ—¶ï¼Œæ±‚ $i$ã€‚\hfill(10\%)
+    %\examvspace{12pt}\\
+    \begin{figure}[H]
+    \hfill
+    \input fig05
+    \end{figure}
+    \examvspace*{1cm}
+    \begin{answer}
+        $u = 6i_\mathrm{L}' = -6\mathrm{e}^{-t}\SI{}{\volt}$ï¼Œ
+        $i = 3u + i_\mathrm{L} = -17\mathrm{e}^{-t}\SI{}{\ampere}$ã€‚
+    \end{answer}
+\end{question}
+
+\begin{question}
+    å·²çŸ¥ $u_{C_1}(0) = \SI{5}{\volt}$ï¼Œ$u_{C_2}(0) = \SI{3}{\volt}$ï¼Œ$i
+    = \mathrm{e}^{-5t}\SI{}{\ampere}$ï¼Œæ±‚$u_C$ åŠè¯¥ä¸²è”ç”µè·¯çš„ç­‰æ•ˆç”µå®¹
+    $C$ã€‚\hfill(5\%)
+    \begin{figure}[H]
+    \hfill
+    \input fig06
+    \end{figure}
+    \examvspace*{1cm}
+    \begin{answer}
+        $C=\SI{8/5}{\farad}$ã€‚
+    \end{answer}
+\end{question}
+
+\begin{question}
+    æ±‚å›¾ä¸­ aã€b ç«¯çš„ç­‰æ•ˆç”µæ„Ÿã€‚\hfill(5\%)
+    \begin{figure}[H]
+    \hfill
+    \input fig07
+    \end{figure}
+    \examvspace*{0cm}
+    \begin{answer}
+        $L_\mathrm{eq}=\SI{6}{\henry}$ã€‚
+    \end{answer}
+\end{question}
+
+\begin{question}
+    å›¾ç¤ºç”µè·¯ä¸­ï¼Œè¯•æ±‚ $\dot{U}$ã€‚\hfill(10\%)
+    \begin{figure}[H]
+    \hfill
+    \input fig08
+    \end{figure}
+    \examvspace*{2cm}
+    \begin{answer}
+        $\dot{I} = 1\Varangle{\SI{0}{\degree}}(0.5 + \mathrm{j}0.5) = \sqrt{2} / 2
+        \Varangle{\SI{45}{\degree}}$ï¼Œ$\dot{U} = \mathrm{j}1\dot{I} +
+        1\Varangle{\SI{0}{\degree}} = \sqrt{2} / 2
+        \Varangle{\SI{45}{\degree}}$ã€‚
+    \end{answer}
+\end{question}
+
+\begin{question}
+    æŸWiFièŠ¯ç‰‡æ­£å¸¸å·¥ä½œæ—¶å…¶RESET(å¤ä½)ä¿¡å·éœ€è¦ä¸ä½äº \SI{1.08}{V} çš„ç”µå‹ï¼Œ
+    ä¸”ä¸Šç”µå¯åŠ¨æ—¶æ­¤ä¿¡å·è¦æ¯”ç”µæºä¿¡å·æ»å \SI{61}{\micro\second} ä»¥ä¸Šã€‚è®¾
+    $t=0$ æ—¶åˆ»æ¥é€šç”µæº $u_\mathrm{s}$ï¼Œåˆ™æ­¤éœ€æ±‚å¯è¡¨ç¤ºä¸º
+    \[
+        \begin{cases}
+            0 \le r(t) < \SI{1.08}{V} & t \le \SI{61}{\micro\second} \text{ æ—¶} \\
+            r(t) \ge \SI{1.08}{V} & \text{å¯åŠ¨å®Œæ¯•ï¼ŒWiFièŠ¯ç‰‡æ­£å¸¸å·¥ä½œæ—¶}
+        \end{cases}
+    \]
+    æŸåŒå­¦è®¾è®¡äº†æ»¡è¶³ä¸Šè¿°è¦æ±‚çš„å¤ä½ç”µè·¯ï¼Œå¹¶å¸Œæœ›å¤ä½ä¿¡å·åœ¨ç”µæºæ¥é€š
+    \SI{80}{\micro\second} åæ­£å¥½ä¸Šå‡åˆ° \SI{1.08}{V} ï¼Œå³
+    $r(\SI{80}{\micro\second})=\SI{1.08}{V}$ã€‚ \hfill (10\%) \\
+    (1) è¯·ç”¨ä¸€ä¸ªç”µå®¹$C$å’Œä¸€ä¸ªç”µé˜»$R$å¸®åŠ©ä»–/å¥¹å®Œæˆä¸‹é¢çš„ç”µè·¯(åœ¨è™šçº¿æ¡†å†…
+    å°†ç”µè·¯å›¾è¡¥å……å®Œæ•´ï¼Œç”µæºæ¥é€šå‰ç”µå®¹æœªå‚¨å­˜ç”µè·)ã€‚\\
+    (2) è¯·è®¡ç®—å¾—å‡ºç”µå®¹$C$å’Œç”µé˜»$R$åº”æ»¡è¶³çš„æ¡ä»¶ï¼Œä»¥ä¾›é€‰æ‹©å™¨ä»¶æ—¶å‚è€ƒã€‚è‹¥
+    æ‰‹å¤´çš„ç”µå®¹æœ€å¤§ä¸º \SI{100}{nF}ï¼Œåˆ™å¯¹ç”µé˜»æœ‰ä½•è¦æ±‚ï¼Ÿ
+    \begin{figure}[H]
+    \hfill
+    \input fig09
+    \end{figure}
+    \examvspace*{2cm}
+    \begin{answer}
+        å¯ç”¨ $RC$ ä½é€šç”µè·¯å®ç°
+        \[r(t)=3.3(1-\mathrm{e}^{-\frac{t}{RC}})\varepsilon(t)\si{V}\]
+        å°† $r(\SI{80}{\micro\second})=\SI{1.08}{V}$ ä»£å…¥ï¼Œå¯è§£å¾—
+        $RC=\SI{201.809}{\micro\second}$ã€‚ç”µé˜»æœ€å°è¦æ±‚ä¸º \SI{2.02}{k\ohm}ã€‚
+    \end{answer}
+\end{question}
+\end{shortanswer}
+
 \end{document}
